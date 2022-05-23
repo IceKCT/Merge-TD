@@ -8,6 +8,7 @@ public class Node : MonoBehaviour
     
     public Color hoverColor;
     public Color notEnoughMoney;
+    public Color colorCanMerge;
     public Vector3 Positionoffset;
 
     [HideInInspector]
@@ -23,6 +24,8 @@ public class Node : MonoBehaviour
     private Renderer rend;
     private Color startColor;
     Buildmanager buildManager;
+    NodeUI nodeUI;
+    Merge merge;
     Shop shop;
     private static bool mouseReleased = true;
     public string tagTurret;
@@ -51,49 +54,50 @@ public class Node : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        //offset = transform.position - MouseWorldPosition();
         mouseReleased = false;
 
-        /*if (turret != null && Merge.Instance.nodeSelect.Count == 2)
-        {
-            buildManager.SelectNode(Merge.Instance.nodeSelect[1]);
-            return;
-        }*/
-        if (turret != null)
+        if (turret != null && Merge.Instance.nodeSelect.Count == 0)
         {
             buildManager.SelectNode(this);
             return;
+            //Merge.Instance.nodeSelect.Add(this);
         }
-        if(Merge.Instance.nodeSelect.Count != 0)
+        else if(turret != null && Merge.Instance.nodeSelect.Count != 0)
         {
             Merge.Instance.nodeSelect.Add(this);
-            if(Merge.Instance.nodeSelect.Count == 3)
+            if(Merge.Instance.nodeSelect.Count >= 3)
             {
                 Merge.Instance.DeleteAll();
             }
+            buildManager.SelectNodeTwo(this);
+            
+        }
+        else if (turret == null)
+        {
+            Merge.Instance.DeleteAll();
+            Debug.Log("Don't any Tower can Merge");
         }
 
         if (!buildManager.CanBuild)
             return;
 
         BuildTurret(buildManager.GetTurretToBuild());
+        
         hasTower = true;
     }
 
     
 
-    void BuildTurret(TurretBlueprint blueprint)
+    void BuildTurret(GameObject blueprint)
     {
-        if (PlayerStat.Money < blueprint.cost)
+        if (PlayerStat.Money < 100)
         {
             Debug.Log("Not enough money to build that");
             //Debug.Log(HasMoney);
             return;
         }
-
-        PlayerStat.Money -= blueprint.cost;
-        GameObject _turret = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
-        mergeTower = blueprint;
+        PlayerStat.Money -= 100;
+        GameObject _turret = (GameObject)Instantiate(blueprint, GetBuildPosition(), Quaternion.identity);
         getPos = GetBuildPosition();
         turret = _turret;
     }
@@ -103,12 +107,28 @@ public class Node : MonoBehaviour
     {
         if(Merge.Instance.nodeSelect[0].turret.tag == Merge.Instance.nodeSelect[1].turret.tag)
         {
-            Destroy(Merge.Instance.nodeSelect[0].turret);
-            Merge.Instance.nodeSelect[0].turret = null;
+            Debug.Log("Merge EiEi");
             Destroy(turret);
-            GameObject _turret = (GameObject)Instantiate(mergeTower.prefabLevel2, GetBuildPosition(), Quaternion.identity);
-            getPos = GetBuildPosition();
-            turret = _turret;
+            if (Merge.Instance.nodeSelect[0].turret.tag == "FireTower")
+            {
+                GameObject _turret = (GameObject)Instantiate(buildManager.fireTurretPrefabLV2, GetBuildPosition(), Quaternion.identity);
+                
+                turret = _turret;
+                Destroy(Merge.Instance.nodeSelect[1].turret);
+                Merge.Instance.nodeSelect[1].turret = null;
+                
+            }
+            else if (Merge.Instance.nodeSelect[0].turret.tag == "WaterTower")
+            {
+                GameObject _turret = (GameObject)Instantiate(buildManager.waterTurretLV2, GetBuildPosition(), Quaternion.identity);
+                
+                turret = _turret;
+                Destroy(Merge.Instance.nodeSelect[1].turret);
+                Merge.Instance.nodeSelect[1].turret = null;
+                
+            }
+            
+           
         }
         else
         {
@@ -123,18 +143,23 @@ public class Node : MonoBehaviour
             return;
 
         if (buildManager.CanBuild)
-            return;
+            rend.material.color = hoverColor;
 
-        
 
-        /* if (buildManager.HasMoney)
+
+         if (buildManager.HasMoney)
          {
              rend.material.color = hoverColor;
          }
          else
          {
              rend.material.color = notEnoughMoney;
-         }*/
+         }
+
+        /*if (merge.CanMerge)
+        {
+            rend.material.color = colorCanMerge;
+        }*/
 
 
     }

@@ -17,11 +17,31 @@ public class NodeUI : MonoBehaviour
     public void SetTarget(Node _target)
     {
         this.target = _target;
-
+        this.target2 = _target;
         transform.position = target.GetBuildPosition() + Positionoffset;
         UI.SetActive(true);
     }
-    
+
+    public void SetTargetTwo(Node _target)
+    {
+        this.target = _target;
+        if(target != target2)
+        {
+            MergeNew();
+        }
+        else if (target == null)
+        {
+            Debug.Log("Don't have tower to merge");
+            Merge.Instance.DeleteAll();
+        }
+        else
+        {
+            Debug.Log("Can't merge self tower");
+            Merge.Instance.DeleteAll();
+        }
+        
+    }
+
 
     public void Hide()
     {
@@ -36,11 +56,16 @@ public class NodeUI : MonoBehaviour
             target.Merged();
             
         }
-        
-        /*Merge.Instance.nodeSelect[0].turret = null;
-        Merge.Instance.DeleteAll();*/
         Buildmanager.instance.DeselectNode();
     }
+
+    public void MergeNew()
+    {
+        target2.Merged();
+        Buildmanager.instance.DeselectNode();
+        
+    }
+   
 
     
 

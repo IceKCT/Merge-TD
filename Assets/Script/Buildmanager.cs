@@ -16,14 +16,15 @@ public class Buildmanager : MonoBehaviour
         instance = this;
         
     }
-    public GameObject fireTurretPrefab;
-    public GameObject waterTurret;
+    public GameObject fireTurretPrefab, waterTurret, fireTurretPrefabLV2, waterTurretLV2;
+    
+    
     public NodeUI nodeUI;
-    private TurretBlueprint turretToBuild;
+    private GameObject turretToBuild;
     private Node selectedNode;
     
     public bool CanBuild { get { return turretToBuild != null; } }
-    //public bool HasMoney { get { return PlayerStat.Money >= turretToBuild.cost; } }
+    public bool HasMoney { get { return PlayerStat.Money >= 100; } }
     
 
 
@@ -34,13 +35,18 @@ public class Buildmanager : MonoBehaviour
         nodeUI.SetTarget(node); 
     }
     
+    public void SelectNodeTwo(Node node)
+    {
+        nodeUI.SetTargetTwo(node);
+    }
 
     public void DeselectNode()
     {
         selectedNode = null;
         nodeUI.Hide();
     }
-    public void SelectTurretToBuild(TurretBlueprint turret)
+
+    public void SelectTurretToBuild(GameObject turret)
     {
         turretToBuild = turret;
         selectedNode = null;
@@ -53,7 +59,7 @@ public class Buildmanager : MonoBehaviour
         turretToBuild = null;
     }
 
-    public TurretBlueprint GetTurretToBuild()
+    public GameObject GetTurretToBuild()
     {
         return turretToBuild;
     }

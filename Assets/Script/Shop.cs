@@ -5,8 +5,8 @@ using UnityEngine;
 public class Shop : MonoBehaviour
 {
     private bool isClick = true;
-    public TurretBlueprint fireTower;
-    public TurretBlueprint waterTower;
+    public GameObject fireTower;
+    public GameObject waterTower;
     Buildmanager buildManager;
     public static int ranNum;
     void Start()

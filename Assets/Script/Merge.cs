@@ -23,6 +23,7 @@ public class Merge : MonoBehaviour
         }
     }
 
+    //public bool CanMerge { get { return nodeSelect[0].tag == nodeSelect[1].tag; } }
     public void ClickSelect(Node nodeToAdd)
     {
         nodeSelect.Add(nodeToAdd);
@@ -41,4 +42,6 @@ public class Merge : MonoBehaviour
         }
         nodeSelect.Clear();
     }
+
+    
 }

@@ -15,6 +15,8 @@ public class NodeClick : MonoBehaviour
         node = GetComponent<Node>();
     }
 
+    
+
     // Update is called once per frame
     void Update()
     {
