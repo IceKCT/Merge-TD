@@ -16,9 +16,10 @@ public class Buildmanager : MonoBehaviour
         instance = this;
         
     }
-    public GameObject fireTurretPrefab, waterTurret, fireTurretPrefabLV2, waterTurretLV2;
-    
-    
+    public GameObject fireTurretPrefab, waterTurret, fireTurretPrefabLV2, waterTurretLV2, fireTurretPrefabLV3, waterTurretLV3;
+    public GameObject waterEffect, fireEffect;
+
+
     public NodeUI nodeUI;
     private GameObject turretToBuild;
     private Node selectedNode;

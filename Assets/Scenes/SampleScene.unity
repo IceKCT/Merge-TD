@@ -15543,6 +15543,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   Positionoffset: {x: 0, y: 0, z: 0}
+  checkMerge: 0
 --- !u!1001 &631006248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30091,6 +30092,10 @@ MonoBehaviour:
   waterTurret: {fileID: 381694729225069466, guid: 1ef05fe9c1084784ab988c324e86aef0, type: 3}
   fireTurretPrefabLV2: {fileID: 8248987168441547325, guid: 6e04f532813bb6d40aa477651289195c, type: 3}
   waterTurretLV2: {fileID: 4528834265090253335, guid: 73366551f3e6ce84893497e16c29fd6b, type: 3}
+  fireTurretPrefabLV3: {fileID: 3017889197572949513, guid: 86dfa62ef2be0af4dba858db51573788, type: 3}
+  waterTurretLV3: {fileID: 4898505069267093240, guid: b1778405ad29e3545a5f279be3f12922, type: 3}
+  waterEffect: {fileID: 719513035816875547, guid: a4dc4fef28d18fa48b45f34e5c0d0538, type: 3}
+  fireEffect: {fileID: 7694578005541553050, guid: 46b82bbad564ce346971c009ac42731b, type: 3}
   nodeUI: {fileID: 630997891}
 --- !u!114 &1288164571
 MonoBehaviour:
@@ -30104,7 +30109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f948769ea28541248821323112b58042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 300
+  startMoney: 1000
   moneyText: {fileID: 824722297}
   startLive: 100
 --- !u!114 &1288164572
@@ -34742,6 +34747,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 136307071}
     m_Modifications:
+    - target: {fileID: 3591229943767625855, guid: aef0f5a272dfef24a89a352f0b534d20, type: 3}
+      propertyPath: colorCanMerge.b
+      value: 0.099430345
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591229943767625855, guid: aef0f5a272dfef24a89a352f0b534d20, type: 3}
+      propertyPath: colorCanMerge.g
+      value: 0.46265325
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591229943767625855, guid: aef0f5a272dfef24a89a352f0b534d20, type: 3}
+      propertyPath: colorCanMerge.r
+      value: 0.9245283
+      objectReference: {fileID: 0}
     - target: {fileID: 3795672993769022318, guid: aef0f5a272dfef24a89a352f0b534d20, type: 3}
       propertyPath: m_Name
       value: Cube (1)

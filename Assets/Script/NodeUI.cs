@@ -13,6 +13,7 @@ public class NodeUI : MonoBehaviour
     public LayerMask ground;
 
     public Vector3 Positionoffset;
+    public bool checkMerge = false;
     
     public void SetTarget(Node _target)
     {
@@ -50,6 +51,7 @@ public class NodeUI : MonoBehaviour
     
     public void MergeTower()
     {
+        checkMerge = true;
         Merge.Instance.nodeSelect.Add(target);
         if(Merge.Instance.nodeSelect.Count == 2)
         {

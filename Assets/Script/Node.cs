@@ -20,7 +20,7 @@ public class Node : MonoBehaviour
     public static TurretBlueprint mergeTower;
    
 
-    private GameObject selectedTower;
+    public GameObject effectPoint;
     private Renderer rend;
     private Color startColor;
     Buildmanager buildManager;
@@ -112,23 +112,40 @@ public class Node : MonoBehaviour
             if (Merge.Instance.nodeSelect[0].turret.tag == "FireTower")
             {
                 GameObject _turret = (GameObject)Instantiate(buildManager.fireTurretPrefabLV2, GetBuildPosition(), Quaternion.identity);
-                
+                Instantiate(buildManager.fireEffect, transform.position, transform.rotation);
                 turret = _turret;
                 Destroy(Merge.Instance.nodeSelect[1].turret);
                 Merge.Instance.nodeSelect[1].turret = null;
                 
+            }
+            else if (Merge.Instance.nodeSelect[0].turret.tag == "FireTower2")
+            {
+                GameObject _turret = (GameObject)Instantiate(buildManager.fireTurretPrefabLV3, GetBuildPosition(), Quaternion.identity);
+                Instantiate(buildManager.fireEffect, GetBuildPosition(), Quaternion.identity);
+                turret = _turret;
+                Destroy(Merge.Instance.nodeSelect[1].turret);
+                Merge.Instance.nodeSelect[1].turret = null;
+
             }
             else if (Merge.Instance.nodeSelect[0].turret.tag == "WaterTower")
             {
                 GameObject _turret = (GameObject)Instantiate(buildManager.waterTurretLV2, GetBuildPosition(), Quaternion.identity);
-                
+                Instantiate(buildManager.waterEffect, GetBuildPosition(), Quaternion.identity);
                 turret = _turret;
                 Destroy(Merge.Instance.nodeSelect[1].turret);
                 Merge.Instance.nodeSelect[1].turret = null;
                 
             }
-            
-           
+            else if (Merge.Instance.nodeSelect[0].turret.tag == "WaterTower2")
+            {
+                GameObject _turret = (GameObject)Instantiate(buildManager.waterTurretLV3, GetBuildPosition(), Quaternion.identity);
+                Instantiate(buildManager.waterEffect, GetBuildPosition(), Quaternion.identity);
+                turret = _turret;
+                Destroy(Merge.Instance.nodeSelect[1].turret);
+                Merge.Instance.nodeSelect[1].turret = null;
+
+            }
+            Merge.Instance.DeleteAll();
         }
         else
         {
@@ -156,10 +173,9 @@ public class Node : MonoBehaviour
              rend.material.color = notEnoughMoney;
          }
 
-        /*if (merge.CanMerge)
-        {
-            rend.material.color = colorCanMerge;
-        }*/
+        
+       
+       
 
 
     }
@@ -170,41 +186,5 @@ public class Node : MonoBehaviour
     }
 
     
-    /*private void OnMouseDrag()
-    {
-        if (turret == null)
-            return;
-
-        turret.transform.position = MouseWorldPosition() + offset;
-        
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (mouseReleased && transform.tag == other.tag)
-        {
-            Destroy(turret.gameObject);
-            Destroy(other.gameObject);
-            
-            Merged();
-            Debug.Log("Merged!");
-        }
-        else if (mouseReleased && transform.tag != other.tag)
-        {
-            Debug.Log("Can't Merge");
-            transform.position = GetBuildPosition();
-
-        }
-    }
-    private void OnMouseUp()
-    {
-        mouseReleased = false;
-    }
-    Vector3 MouseWorldPosition()
-    {
-        var mouseOnScreen = Input.mousePosition;
-        mouseOnScreen.z = Camera.main.WorldToScreenPoint(transform.position).z;
-        return Camera.main.ScreenToWorldPoint(mouseOnScreen);
-    }
-    */
+    
 }
