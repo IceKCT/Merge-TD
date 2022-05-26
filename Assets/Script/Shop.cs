@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    private bool isClick = true;
+   
     public GameObject fireTower;
     public GameObject waterTower;
     Buildmanager buildManager;
@@ -16,16 +16,7 @@ public class Shop : MonoBehaviour
     public void SelectRandomTurret()
     {
         Debug.Log("Purchased");
-        
-        if(isClick == true)
-        {
-            RandomTurret();
-        }
-        else
-        {
-            isClick = true;
-        }
-        
+        RandomTurret();
         Debug.Log(ranNum);
     }
 
@@ -43,7 +34,7 @@ public class Shop : MonoBehaviour
             return;
 
         }
-        isClick = false;
+        
     }
 
     public void MergedTower()

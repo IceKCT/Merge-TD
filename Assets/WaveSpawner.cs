@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -69,6 +70,7 @@ public class WaveSpawner : MonoBehaviour
             }
             else
             {
+                SceneManager.LoadScene("EndGameScene");
                 Debug.Log("Game Finished");
             }
         }

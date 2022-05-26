@@ -27,7 +27,7 @@ public class Node : MonoBehaviour
     NodeUI nodeUI;
     Merge merge;
     Shop shop;
-    private static bool mouseReleased = true;
+    
     public string tagTurret;
     private int RandomNum;
     public bool hasTower = false;
@@ -54,7 +54,7 @@ public class Node : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        mouseReleased = false;
+        
 
         if (turret != null && Merge.Instance.nodeSelect.Count == 0)
         {
