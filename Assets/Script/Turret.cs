@@ -5,9 +5,7 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     private Transform target;
-    Vector3 offset;
-    private Vector3 currentPos;
-    Buildmanager buildManager;
+    
     [Header("General")]
     public float range = 15f;
 
@@ -29,23 +27,22 @@ public class Turret : MonoBehaviour
     [Header("SomeThing else")]
 
     public Transform firePoint;
-    private static bool mouseReleased = true;
+    
     [HideInInspector]
     public static bool isMerge;
-    private Node node;
-    public GameObject clone;
+    
+    
 
     [HideInInspector]
     public float rangeNode = 99999;
-    public Node newNode;
-    public GameObject prefabLevel2;
+    
+
+    public int sellTower;
 
     private void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
-        currentPos = transform.position;
-        node = GetComponent<Node>();
-        buildManager = Buildmanager.instance;
+       
     }
 
     void UpdateTarget()
@@ -89,8 +86,6 @@ public class Turret : MonoBehaviour
             }
             return;
         }
-        if (mouseReleased)
-        {
             LockOnTarget();
 
             if (useWater)
@@ -107,11 +102,8 @@ public class Turret : MonoBehaviour
 
                 fireCountdown -= Time.deltaTime;
             }
-        }
-        else
-        {
-            return;
-        }
+        
+       
 
 
     }
@@ -156,68 +148,10 @@ public class Turret : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, range);
     }
 
-    /*private void OnMouseDown()
+    public int GetMoneyFromTower()
     {
-        mouseReleased = false;
-        offset = transform.position - MouseWorldPosition();
-        Debug.Log("is Click");
+        return sellTower;
     }
 
-    private void OnMouseDrag()
-    {
-        Debug.Log("is Drag");
-        transform.position = MouseWorldPosition() + offset;
-    }
-
-    private void OnMouseUp()
-    {
-        mouseReleased = true;
-    }
-
-    private void OnMouseExit()
-    {
-
-        
-
-    }
-
-    Vector3 MouseWorldPosition()
-    {
-        var mouseOnScreen = Input.mousePosition;
-        mouseOnScreen.z = Camera.main.WorldToScreenPoint(transform.position).z;
-        return Camera.main.ScreenToWorldPoint(mouseOnScreen);
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (mouseReleased && transform.tag == other.tag)
-        {
-           
-            
-            Destroy(gameObject);
-            Destroy(other.gameObject);
-            isMerge = true;
-            Instantiate(prefabLevel2, currentPos, Quaternion.identity);
-            
-            //node.Merged();
-            Debug.Log("Merged!");
-
-        }
-        else if (mouseReleased && transform.tag != other.tag)
-        {
-            Debug.Log("Can't Merge");
-            transform.position = currentPos;
-
-        }
-    }
-
-    public static bool GetBoolMerge()
-    {
-        return isMerge;
-    }
-
-    public static bool SetBoolMerge()
-    {
-        return isMerge = false;
-    }*/
+    
 }

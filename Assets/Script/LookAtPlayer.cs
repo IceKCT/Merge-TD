@@ -9,10 +9,7 @@ public class LookAtPlayer : MonoBehaviour
 
     // Update is called once per frame
 
-    private void Start()
-    {
-       
-    }
+   
     void LateUpdate()
     {
         transform.LookAt(cam);

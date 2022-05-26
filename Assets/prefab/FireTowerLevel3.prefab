@@ -267,8 +267,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943824820671235116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.46, y: 3.2, z: 5.5884}
-  m_LocalScale: {x: 0.69523203, y: 0.69523203, z: 0.69523203}
+  m_LocalPosition: {x: 23.054, y: 1.86, z: 4.8733}
+  m_LocalScale: {x: 0.52559537, y: 0.52559537, z: 0.52559537}
   m_Children:
   - {fileID: 7900303466969397674}
   - {fileID: 5488733698590921555}
@@ -297,6 +297,7 @@ Transform:
   - {fileID: 6023088559492214105}
   - {fileID: 6825605395899665306}
   - {fileID: 9130967860941548935}
+  - {fileID: 1960174604284978634}
   m_Father: {fileID: 3017889197572949512}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -798,6 +799,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3017889197572949512}
+  - component: {fileID: 8779034149757257768}
   m_Layer: 0
   m_Name: FireTowerLevel3
   m_TagString: FireTower3
@@ -820,6 +822,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8779034149757257768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3017889197572949513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb4fb018f72e134d81fb222785f33eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 62
+  bulletPrefab: {fileID: 7364444035330934799, guid: 760f4f485502c9b4bb0cca084719da1f, type: 3}
+  fireRate: 0.5
+  useWater: 0
+  lineRenderer: {fileID: 0}
+  effect: {fileID: 0}
+  damageOverTime: 10
+  enemyTag: Enemy
+  turnSpeed: 5
+  firePoint: {fileID: 1960174604284978634}
+  clone: {fileID: 0}
+  rangeNode: 99999
+  newNode: {fileID: 0}
+  prefabLevel2: {fileID: 0}
+  sellTower: 100
 --- !u!1 &4164450418586631231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,6 +1904,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7224325170788968739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1960174604284978634}
+  m_Layer: 0
+  m_Name: firePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1960174604284978634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7224325170788968739}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -43.28, y: 8.65, z: 10.36}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1275093518993464982}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7558995723340093035
 GameObject:
   m_ObjectHideFlags: 0

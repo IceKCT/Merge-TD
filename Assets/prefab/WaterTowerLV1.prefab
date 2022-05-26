@@ -5445,6 +5445,7 @@ MonoBehaviour:
   rangeNode: 99999
   newNode: {fileID: 0}
   prefabLevel2: {fileID: 4528834265090253335, guid: 73366551f3e6ce84893497e16c29fd6b, type: 3}
+  sellTower: 50
 --- !u!120 &2873027667569316523
 LineRenderer:
   m_ObjectHideFlags: 0

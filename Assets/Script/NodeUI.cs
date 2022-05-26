@@ -14,7 +14,10 @@ public class NodeUI : MonoBehaviour
 
     public Vector3 Positionoffset;
     public bool checkMerge = false;
-    
+
+    private int getMoney;
+    public GameObject sellEffect;
+    public Transform effectPoint;
     public void SetTarget(Node _target)
     {
         this.target = _target;
@@ -68,6 +71,14 @@ public class NodeUI : MonoBehaviour
         
     }
    
+    public void SellTower()
+    {
+        PlayerStat.Money += target.turret.GetComponent<Turret>().GetMoneyFromTower();
+        Destroy(target.turret);
+        target.turret = null;
+        Instantiate(sellEffect, effectPoint.position, Quaternion.identity);
+        Buildmanager.instance.DeselectNode();
+    }
 
     
 

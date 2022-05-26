@@ -1485,8 +1485,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7154139831465315238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.149994, y: 5.1, z: 7.2599945}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 9.6314, y: 3.67, z: 4.7004}
+  m_LocalScale: {x: 0.6643464, y: 0.6643464, z: 0.6643464}
   m_Children:
   - {fileID: 8998492874196089711}
   - {fileID: 5969631580437685175}
@@ -1848,6 +1848,7 @@ MonoBehaviour:
   rangeNode: 99999
   newNode: {fileID: 0}
   prefabLevel2: {fileID: 0}
+  sellTower: 75
 --- !u!1 &8403552637332190562
 GameObject:
   m_ObjectHideFlags: 0

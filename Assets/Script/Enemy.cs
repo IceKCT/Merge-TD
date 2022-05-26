@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     private Transform target;
     private int wavepointIndex = 0;
     public float starthealth = 100;
-    private float health;
+    private float health,healthDivine;
     public int worth = 10;
     public Image healthBar;
     private PlayerStat p;
@@ -19,18 +19,17 @@ public class Enemy : MonoBehaviour
     {
         target = Waypoints.points[0];
         health = starthealth;
+        healthDivine = health;
         p = GetComponent<PlayerStat>();
     }
     public void TakeDamage(float amount)
     {
         health -= amount;
 
-        healthBar.fillAmount = health / 100f;
+        healthBar.fillAmount = health / healthDivine;
         if(health <= 0)
         {
             Die();
-            
-       
         }
     }
     private void Update()
@@ -64,12 +63,20 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         PlayerStat.Money += worth;
+
+        
         Destroy(gameObject);
     }
 
     void EndPath()
     {
         PlayerStat.live -= enemyDamage;
+        
         Destroy(gameObject);
+    }
+
+    public void Stronger(float index)
+    {
+        starthealth += index;
     }
 }

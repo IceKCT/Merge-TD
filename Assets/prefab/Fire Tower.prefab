@@ -272,6 +272,7 @@ MonoBehaviour:
   rangeNode: 99999
   newNode: {fileID: 0}
   prefabLevel2: {fileID: 8248987168441547325, guid: 6e04f532813bb6d40aa477651289195c, type: 3}
+  sellTower: 50
 --- !u!65 &1831041935
 BoxCollider:
   m_ObjectHideFlags: 0

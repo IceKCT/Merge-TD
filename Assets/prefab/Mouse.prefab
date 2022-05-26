@@ -103,8 +103,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455423327}
   m_LocalRotation: {x: 0.47669297, y: -0, z: -0, w: 0.87906986}
-  m_LocalPosition: {x: 0, y: 0, z: -0.5772882}
-  m_LocalScale: {x: 0.08132458, y: 0.08132458, z: 0.08132458}
+  m_LocalPosition: {x: 0, y: 0, z: 0.6}
+  m_LocalScale: {x: 0.14122014, y: 0.14122014, z: 0.14122014}
   m_Children:
   - {fileID: 1820986300}
   m_Father: {fileID: 3270896937922500157}
@@ -112,7 +112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 56.939, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.8100006, y: 4.746746}
+  m_AnchoredPosition: {x: 0.7, y: 8}
   m_SizeDelta: {x: 103.1693, y: 24.641}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1455423331
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c06a8da2bc7ee438cfaad65aa9a772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 3155604103900573951, guid: 19f690424e25fac419089c4af5806632, type: 3}
+  cam: {fileID: 5227441572792542113, guid: e424209cd80ae724b81b4111e798f288, type: 3}
 --- !u!1 &1820986299
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +385,7 @@ Transform:
   m_GameObject: {fileID: 2751523192688921735}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.2, y: 1.08, z: 58.79}
-  m_LocalScale: {x: 1.9308195, y: 1.9308195, z: 1.9308195}
+  m_LocalScale: {x: 0.82941943, y: 0.82941943, z: 0.82941943}
   m_Children:
   - {fileID: 5896437032714192547}
   - {fileID: 3670240247906229384}
@@ -441,6 +441,7 @@ MonoBehaviour:
   speed: 14
   turnSpeed: 5
   starthealth: 100
+  health: 0
   worth: 10
   healthBar: {fileID: 1283809532}
   enemyDamage: 2
@@ -681,8 +682,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5425588983286729961}
   m_LocalRotation: {x: -0.7071067, y: 5.302452e-33, z: 5.302451e-33, w: 0.7071068}
-  m_LocalPosition: {x: 0.7668794, y: 1.3660495, z: -0.7272898}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalPosition: {x: 0.7668794, y: -0.3, z: -1.22}
+  m_LocalScale: {x: 150.39894, y: 150.39894, z: 150.39894}
   m_Children:
   - {fileID: 8192092801794991567}
   - {fileID: 2921661490745766432}

@@ -76,6 +76,7 @@ public class Node : MonoBehaviour
         {
             Merge.Instance.DeleteAll();
             Debug.Log("Don't any Tower can Merge");
+            buildManager.DeselectNode();
         }
 
         if (!buildManager.CanBuild)
@@ -100,6 +101,7 @@ public class Node : MonoBehaviour
         GameObject _turret = (GameObject)Instantiate(blueprint, GetBuildPosition(), Quaternion.identity);
         getPos = GetBuildPosition();
         turret = _turret;
+        buildManager.DeNodeTower();
     }
 
     
