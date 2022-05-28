@@ -4843,6 +4843,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 381694729225069465}
+  - component: {fileID: 4923573291714245972}
   m_Layer: 0
   m_Name: WaterTowerLV1
   m_TagString: WaterTower
@@ -4866,6 +4867,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4923573291714245972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381694729225069466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb4fb018f72e134d81fb222785f33eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 45
+  bulletPrefab: {fileID: 0}
+  fireRate: 1
+  useWater: 1
+  lineRenderer: {fileID: 2873027667569316523}
+  effect: {fileID: 381694728112975199}
+  damageOverTime: 45
+  enemyTag: Enemy
+  turnSpeed: 5
+  firePoint: {fileID: 381694727328045648}
+  sellTower: 50
 --- !u!1 &453956486513898186
 GameObject:
   m_ObjectHideFlags: 0
@@ -5362,7 +5386,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3212434178769864726}
   - component: {fileID: 2873027667569316521}
-  - component: {fileID: 2873027667569316522}
   - component: {fileID: 2873027667569316523}
   - component: {fileID: 653674729}
   - component: {fileID: 3113699658121531156}
@@ -5419,33 +5442,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2873027667569316522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2873027667569316524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeb4fb018f72e134d81fb222785f33eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 45
-  bulletPrefab: {fileID: 0}
-  fireRate: 1
-  useWater: 1
-  lineRenderer: {fileID: 2873027667569316523}
-  effect: {fileID: 381694728112975199}
-  damageOverTime: 45
-  enemyTag: Enemy
-  turnSpeed: 5
-  firePoint: {fileID: 381694727328045648}
-  clone: {fileID: 0}
-  rangeNode: 99999
-  newNode: {fileID: 0}
-  prefabLevel2: {fileID: 4528834265090253335, guid: 73366551f3e6ce84893497e16c29fd6b, type: 3}
-  sellTower: 50
 --- !u!120 &2873027667569316523
 LineRenderer:
   m_ObjectHideFlags: 0

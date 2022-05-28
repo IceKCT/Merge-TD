@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     public Image healthBar;
     private PlayerStat p;
     public int enemyDamage;
+
+    public static int bonusMoney;
     private void Start()
     {
         target = Waypoints.points[0];
@@ -62,10 +64,13 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        PlayerStat.Money += worth;
-
-        
+        PlayerStat.Money += worth + bonusMoney;
         Destroy(gameObject);
+    }
+
+    public static int BonusHero(int x)
+    {
+        return bonusMoney = x;
     }
 
     void EndPath()

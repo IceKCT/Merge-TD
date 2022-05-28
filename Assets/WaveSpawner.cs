@@ -22,14 +22,26 @@ public class WaveSpawner : MonoBehaviour
 
     private Wave currentWave;
     private int currentWaveIndex;
-
+    public GameObject hero;
     private bool finishedSpawn;
 
     private void Start()
     {
-        StartCoroutine(StartNextWave(currentWaveIndex));
+        hero.SetActive(true);
     }
-
+    
+    public void MoneyHero()
+    {
+        Enemy.BonusHero(10);
+        StartCoroutine(StartNextWave(currentWaveIndex));
+        hero.SetActive(false);
+    }
+    public void FireRateHero()
+    {
+        Turret.HeroFirerate(0.5f , 10);
+        StartCoroutine(StartNextWave(currentWaveIndex));
+        hero.SetActive(false);
+    }
     IEnumerator StartNextWave(int index)
     {
         yield return new WaitForSeconds(timeBetweenWave);

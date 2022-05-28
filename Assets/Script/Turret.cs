@@ -25,20 +25,11 @@ public class Turret : MonoBehaviour
     public float turnSpeed = 5f;
 
     [Header("SomeThing else")]
-
     public Transform firePoint;
     
-    [HideInInspector]
-    public static bool isMerge;
-    
-    
-
-    [HideInInspector]
-    public float rangeNode = 99999;
-    
-
     public int sellTower;
-
+    public static float bonusFirerate = 0;
+    public static int bonusDamage = 0;
     private void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
@@ -97,7 +88,7 @@ public class Turret : MonoBehaviour
                 if (fireCountdown <= 0)
                 {
                     Shoot();
-                    fireCountdown = 1f / fireRate;
+                    fireCountdown = 1f / fireRate + bonusFirerate;
                 }
 
                 fireCountdown -= Time.deltaTime;
@@ -118,7 +109,8 @@ public class Turret : MonoBehaviour
 
     void Water()
     {
-        target.GetComponent<Enemy>().TakeDamage(damageOverTime * Time.deltaTime);
+        
+        target.GetComponent<Enemy>().TakeDamage((damageOverTime + bonusDamage) * Time.deltaTime);
 
         if (!lineRenderer.enabled)
         {
@@ -153,5 +145,10 @@ public class Turret : MonoBehaviour
         return sellTower;
     }
 
-    
+    public static void HeroFirerate(float x , int y)
+    {
+        bonusFirerate = x;
+        bonusDamage = y;
+    }
+
 }
