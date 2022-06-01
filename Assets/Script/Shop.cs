@@ -7,6 +7,8 @@ public class Shop : MonoBehaviour
    
     public GameObject fireTower;
     public GameObject waterTower;
+    public GameObject fireSprite, waterSprite;
+    
     Buildmanager buildManager;
     public static int ranNum;
     void Start()
@@ -16,8 +18,16 @@ public class Shop : MonoBehaviour
     public void SelectRandomTurret()
     {
         Debug.Log("Purchased");
+        if (PlayerStat.Money < 100)
+        {
+            Debug.Log("Not enough money to build that");
+            buildManager.NotEnoghMoneyPOPUP();
+            //Debug.Log(HasMoney);
+            return;
+        }
+        PlayerStat.Money -= 100;
         RandomTurret();
-        Debug.Log(ranNum);
+        
     }
 
     public void RandomTurret()
@@ -26,15 +36,23 @@ public class Shop : MonoBehaviour
         if (ranNum <= 5)
         {
             buildManager.SelectTurretToBuild(fireTower);
+            fireSprite.SetActive(true);
+            waterSprite.SetActive(false);
             return;
         }
         else
         {
             buildManager.SelectTurretToBuild(waterTower);
+            waterSprite.SetActive(true);
+            fireSprite.SetActive(false);
             return;
-
         }
         
+    }
+    public void CloseSprite()
+    {
+        fireSprite.SetActive(false);
+        waterSprite.SetActive(false);
     }
 
     public void MergedTower()
@@ -43,5 +61,16 @@ public class Shop : MonoBehaviour
         return;
     }
 
-   
+    private void Update()
+    {
+        if (buildManager.CloseSprite)
+        {
+            CloseSprite();
+        }
+        else
+        {
+
+        }
+    }
+
 }

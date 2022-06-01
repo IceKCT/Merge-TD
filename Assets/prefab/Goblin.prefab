@@ -526,8 +526,8 @@ MonoBehaviour:
   speed: 15
   turnSpeed: 5
   starthealth: 150
-  health: 0
   worth: 10
+  scoreAmount: 15
   healthBar: {fileID: 8052626887624372590}
   enemyDamage: 10
 --- !u!136 &5877521155917627028

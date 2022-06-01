@@ -23,11 +23,15 @@ public class Buildmanager : MonoBehaviour
     public NodeUI nodeUI;
     private GameObject turretToBuild;
     private Node selectedNode;
-    
-    public bool CanBuild { get { return turretToBuild != null; } }
-    public bool HasMoney { get { return PlayerStat.Money >= 100; } }
+    public float closePOPUP = 4;
     
 
+    public GameObject popUPcantmerge, popUPNotEnough;
+
+    public bool CanBuild { get { return turretToBuild != null; } }
+    public bool HasMoney { get { return PlayerStat.Money >= 100; } }
+
+    public bool CloseSprite { get { return turretToBuild == null; } }
 
     public void SelectNode(Node node)
     {
@@ -62,10 +66,29 @@ public class Buildmanager : MonoBehaviour
 
     public GameObject GetTurretToBuild()
     {
+        
         return turretToBuild;
     }
 
-  
+    public void NotEnoghMoneyPOPUP()
+    {
+        popUPNotEnough.SetActive(true);
+        StartCoroutine(ClosePOPUP());
+    }
+
+    public void CantMergePOPUP()
+    {
+        popUPcantmerge.SetActive(true);
+        StartCoroutine(ClosePOPUP());
+    }
+
+    public IEnumerator ClosePOPUP()
+    {
+        yield return new WaitForSeconds(closePOPUP);
+        popUPNotEnough.SetActive(false);
+        popUPcantmerge.SetActive(false);
+    } 
+
 
 
 }

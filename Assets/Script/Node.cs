@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
 public class Node : MonoBehaviour
 {
-    
     public Color hoverColor;
     public Color notEnoughMoney;
     public Color colorCanMerge;
@@ -24,26 +24,27 @@ public class Node : MonoBehaviour
     private Renderer rend;
     private Color startColor;
     Buildmanager buildManager;
-    NodeUI nodeUI;
-    Merge merge;
-    Shop shop;
+   
     
     public string tagTurret;
-    private int RandomNum;
+   
     public bool hasTower = false;
-    
+
+  
+
+
+
     private void Start()
     {
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
         buildManager = Buildmanager.instance;
         Merge.Instance.nodeList.Add(this);
+   
     }
 
     public Vector3 GetBuildPosition()
     {
-        RandomNum = Random.Range(0, 10);
-        Shop.ranNum = RandomNum;
         return transform.position + Positionoffset;
     }
 
@@ -83,7 +84,7 @@ public class Node : MonoBehaviour
             return;
 
         BuildTurret(buildManager.GetTurretToBuild());
-        
+     
         hasTower = true;
     }
 
@@ -91,13 +92,7 @@ public class Node : MonoBehaviour
 
     void BuildTurret(GameObject blueprint)
     {
-        if (PlayerStat.Money < 100)
-        {
-            Debug.Log("Not enough money to build that");
-            //Debug.Log(HasMoney);
-            return;
-        }
-        PlayerStat.Money -= 100;
+        
         GameObject _turret = (GameObject)Instantiate(blueprint, GetBuildPosition(), Quaternion.identity);
         getPos = GetBuildPosition();
         turret = _turret;
@@ -151,6 +146,7 @@ public class Node : MonoBehaviour
         }
         else
         {
+            buildManager.CantMergePOPUP();
             Debug.Log("Can't Merge EiEi");
             Merge.Instance.DeleteAll();
         }
