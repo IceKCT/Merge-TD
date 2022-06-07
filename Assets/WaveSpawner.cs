@@ -1,8 +1,8 @@
-using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using UnityEngine;
+using System.Collections.Generic;
 public class WaveSpawner : MonoBehaviour
 {
     [System.Serializable]
@@ -11,7 +11,10 @@ public class WaveSpawner : MonoBehaviour
         public Enemy[] enemies;
         public int count;
         public float timeBetweenSpawn;
+        public Sprite spriteone, spriteTwo;
     }
+
+    public static WaveSpawner instance;
 
     public Text textTimeCountBetweenSpawn;
     public Text currentWaveText;
@@ -29,6 +32,22 @@ public class WaveSpawner : MonoBehaviour
     private float countdown;
     private bool startWave = false;
     private Animator anim;
+
+    public Image img1, img2, img3;
+
+    public List<Enemy> enemylist = new List<Enemy>();
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("more than one in scene");
+            return;
+        }
+        instance = this;
+
+    }
+
     private void Start()
     {
         countdown = timeBetweenWave;
@@ -61,10 +80,14 @@ public class WaveSpawner : MonoBehaviour
 
         currentWave = waves[index];
 
+        img1.sprite = currentWave.spriteone;
+        img2.sprite = currentWave.spriteTwo;
         for (int i = 0; i < currentWave.count; i++)
         {
             Enemy randomEnemy = currentWave.enemies[Random.Range(0, currentWave.enemies.Length)];
             Instantiate(randomEnemy, SpawnPoint.position, SpawnPoint.rotation);
+            enemylist.Add(randomEnemy);
+            
 
             if(i == currentWave.count - 1)
             {
@@ -90,8 +113,8 @@ public class WaveSpawner : MonoBehaviour
             finishedSpawn = false;
             if(currentWaveIndex + 1 < waves.Length)
             {
+                enemylist.Clear();
                 currentWaveIndex++;
-                
                 StartCoroutine(StartNextWave(currentWaveIndex));
             }
             else

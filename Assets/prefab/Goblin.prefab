@@ -530,6 +530,7 @@ MonoBehaviour:
   scoreAmount: 15
   healthBar: {fileID: 8052626887624372590}
   enemyDamage: 10
+  dropItem: {fileID: 6064786960500330880, guid: 59689c5c6663393479c77cd737176bbe, type: 3}
 --- !u!136 &5877521155917627028
 CapsuleCollider:
   m_ObjectHideFlags: 0

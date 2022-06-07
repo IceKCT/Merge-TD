@@ -16,8 +16,10 @@ public class Enemy : MonoBehaviour
     public Image healthBar;
     private PlayerStat p;
     public int enemyDamage;
-
     public static int bonusMoney;
+    [Header("ItemDroper")]
+    public bool hasItemTodrop;
+    public GameObject dropItem;
     private void Start()
     {
         target = Waypoints.points[0];
@@ -65,6 +67,15 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        if (hasItemTodrop)
+        {
+            int x = Random.Range(0, 100);
+            if (x <= 20)
+            {
+                Instantiate(dropItem, transform.position, Quaternion.identity);
+            }
+        }
+        
         PlayerStat.Money += worth + bonusMoney;
         PlayerStat.score += scoreAmount;
         Destroy(gameObject);

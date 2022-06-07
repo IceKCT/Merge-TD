@@ -5,7 +5,8 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     private Transform target;
-    
+
+
     [Header("General")]
     public float range = 15f;
 
@@ -26,14 +27,19 @@ public class Turret : MonoBehaviour
 
     [Header("SomeThing else")]
     public Transform firePoint;
-    
+
     public int sellTower;
     public static float bonusFirerate = 0;
     public static int bonusDamage = 0;
+
+    WaveSpawner waves;
     private void Start()
     {
+
+        waves = WaveSpawner.instance;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
-       
+        Debug.Log(waves == null);
+
     }
 
     void UpdateTarget()
@@ -41,10 +47,48 @@ public class Turret : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
+        Stack<GameObject> nearestEnemys = new Stack<GameObject>(3);
+
+
+        /*if (waves.enemylist != null)
+        {
+            for (int i = 0; i < waves.enemylist.Count; i++)
+            {
+                float distantTosecond = Vector3.Distance(transform.position, waves.enemylist[i].transform.position);
+                if (distantTosecond <= range)
+                {
+                    target = waves.enemylist[i].transform;
+                }
+                else
+                {
+                    target = null;
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("Don't have Enemy");
+            return;
+        }
+        Debug.Log(target);*/
+
+
+        /*for (int i = 0; i < enemies.Length; i++)
+        {
+            float distanceToEnemy = Vector3.Distance(transform.position, enemies[i].transform.position);
+
+            if (distanceToEnemy <= shortestDistance)
+            {
+                shortestDistance = distanceToEnemy;
+                nearestEnemys.Push(enemies[i]);
+                
+            }
+        }*/
 
         foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            
             if (distanceToEnemy < shortestDistance)
             {
                 shortestDistance = distanceToEnemy;
@@ -52,6 +96,15 @@ public class Turret : MonoBehaviour
             }
         }
 
+
+        /*if (nearestEnemys != null && shortestDistance <= range)
+        {
+            target = nearestEnemys.Peek().transform;
+        }
+        else
+        {
+            target = null;
+        }*/
         if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
@@ -77,24 +130,24 @@ public class Turret : MonoBehaviour
             }
             return;
         }
-            LockOnTarget();
+        LockOnTarget();
 
-            if (useWater)
+        if (useWater)
+        {
+            Water();
+        }
+        else
+        {
+            if (fireCountdown <= 0)
             {
-                Water();
+                Shoot();
+                fireCountdown = 1f / fireRate - bonusFirerate;
             }
-            else
-            {
-                if (fireCountdown <= 0)
-                {
-                    Shoot();
-                    fireCountdown = 1f / fireRate - bonusFirerate;
-                }
 
-                fireCountdown -= Time.deltaTime;
-            }
-        
-       
+            fireCountdown -= Time.deltaTime;
+        }
+
+
 
 
     }
@@ -109,7 +162,7 @@ public class Turret : MonoBehaviour
 
     void Water()
     {
-        
+
         target.GetComponent<Enemy>().TakeDamage((damageOverTime + bonusDamage) * Time.deltaTime);
 
         if (!lineRenderer.enabled)
@@ -132,6 +185,7 @@ public class Turret : MonoBehaviour
         if (bullet != null)
         {
             bullet.Seek(target);
+
         }
     }
     private void OnDrawGizmosSelected()
@@ -145,7 +199,7 @@ public class Turret : MonoBehaviour
         return sellTower;
     }
 
-    public static void HeroFirerate(float x , int y)
+    public static void HeroFirerate(float x, int y)
     {
         bonusFirerate = x;
         bonusDamage = y;

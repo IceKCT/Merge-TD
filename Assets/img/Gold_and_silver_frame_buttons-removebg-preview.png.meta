@@ -48,6 +48,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -304,6 +305,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Gold_and_silver_frame_buttons-removebg-preview_6: 7513627342461261819
+      Gold_and_silver_frame_buttons-removebg-preview_7: 1901743050418822264
+      Gold_and_silver_frame_buttons-removebg-preview_3: -167469810171928014
+      Gold_and_silver_frame_buttons-removebg-preview_1: 996063282616566153
+      Gold_and_silver_frame_buttons-removebg-preview_4: -6045513076848371602
+      Gold_and_silver_frame_buttons-removebg-preview_5: -8843736372648044091
+      Gold_and_silver_frame_buttons-removebg-preview_0: -7262981411910692589
+      Gold_and_silver_frame_buttons-removebg-preview_2: -7414984266138021741
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
