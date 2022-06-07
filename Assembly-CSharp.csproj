@@ -80,6 +80,7 @@
     <Compile Include="Assets\Script\UI Script\SettingButton.cs" />
     <Compile Include="Assets\Script\Node.cs" />
     <Compile Include="Assets\Script\ScoreManager.cs" />
+    <Compile Include="Assets\Script\OptionSettingButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\SimpleSky\ReadMe.txt" />
