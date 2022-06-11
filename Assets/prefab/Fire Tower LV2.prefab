@@ -1836,7 +1836,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 55.86
   bulletPrefab: {fileID: 9179944953067007235, guid: cf0f8f7baa36ba040b4e63dcd28d52d1, type: 3}
-  fireRate: 0.5
+  fireRate: 1
+  attackDamage: 150
   useWater: 0
   lineRenderer: {fileID: 0}
   effect: {fileID: 0}
@@ -1844,11 +1845,8 @@ MonoBehaviour:
   enemyTag: Enemy
   turnSpeed: 5
   firePoint: {fileID: 8248987168351900126}
-  clone: {fileID: 0}
-  rangeNode: 99999
-  newNode: {fileID: 0}
-  prefabLevel2: {fileID: 0}
   sellTower: 75
+  MergePrice: 200
 --- !u!1 &8403552637332190562
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,7 +25,7 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenWave;
 
     private Wave currentWave;
-    private int currentWaveIndex;
+    public int currentWaveIndex;
     public GameObject hero;
     private bool finishedSpawn;
 
@@ -57,13 +57,13 @@ public class WaveSpawner : MonoBehaviour
     
     public void MoneyHero()
     {
-        Enemy.BonusHero(10);
+        Enemy.BonusHero(3);
         StartCoroutine(StartNextWave(currentWaveIndex));
         hero.SetActive(false);
     }
     public void FireRateHero()
     {
-        Turret.HeroFirerate(0.2f , 10);
+        Turret.HeroFirerate(0.2f,5f,10);
         StartCoroutine(StartNextWave(currentWaveIndex));
         hero.SetActive(false);
     }

@@ -972,13 +972,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 945d2026b4ae6ca4c833123dbddb57e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 8
   turnSpeed: 5
-  starthealth: 2500
-  worth: 10
+  starthealth: 4000
+  worth: 100
   scoreAmount: 30
   healthBar: {fileID: 3472645488419803406}
   enemyDamage: 25
+  hasItemTodrop: 0
   dropItem: {fileID: 0}
 --- !u!1 &3402207618825479649
 GameObject:

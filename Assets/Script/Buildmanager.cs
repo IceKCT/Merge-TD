@@ -26,7 +26,7 @@ public class Buildmanager : MonoBehaviour
     public float closePOPUP = 4;
     
 
-    public GameObject popUPcantmerge, popUPNotEnough;
+    public GameObject popUPcantmerge, popUPNotEnough, popUpOFR, popUpSelectAnother;
 
     public bool CanBuild { get { return turretToBuild != null; } }
     public bool HasMoney { get { return PlayerStat.Money >= 100; } }
@@ -81,12 +81,24 @@ public class Buildmanager : MonoBehaviour
         popUPcantmerge.SetActive(true);
         StartCoroutine(ClosePOPUP());
     }
+    public void OutOfRange()
+    {
+        popUpOFR.SetActive(true);
+        StartCoroutine(ClosePOPUP());
+    }
+    public void SelectAnother()
+    {
+        popUpSelectAnother.SetActive(true);
+        StartCoroutine(ClosePOPUP());
+    }
 
     public IEnumerator ClosePOPUP()
     {
         yield return new WaitForSeconds(closePOPUP);
         popUPNotEnough.SetActive(false);
         popUPcantmerge.SetActive(false);
+        popUpSelectAnother.SetActive(false);
+        popUpOFR.SetActive(false);
     } 
 
 

@@ -17,15 +17,21 @@ public class Enemy : MonoBehaviour
     private PlayerStat p;
     public int enemyDamage;
     public static int bonusMoney;
+    private float increaseHealthPerWave = 10;
+    WaveSpawner wave;
     [Header("ItemDroper")]
     public bool hasItemTodrop;
     public GameObject dropItem;
+
     private void Start()
     {
+        wave = WaveSpawner.instance;
         target = Waypoints.points[0];
-        health = starthealth;
+        Stronger();
+        health = starthealth + increaseHealthPerWave;
         healthDivine = health;
         p = GetComponent<PlayerStat>();
+        
     }
     public void TakeDamage(float amount)
     {
@@ -51,6 +57,8 @@ public class Enemy : MonoBehaviour
         {
             GetNextWayPoints();
         }
+
+
     }
 
     void GetNextWayPoints()
@@ -93,8 +101,8 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void Stronger(float index)
+    public void Stronger()
     {
-        starthealth += index;
+        increaseHealthPerWave = 10 + (10 * Mathf.Sqrt(increaseHealthPerWave + wave.currentWaveIndex));
     }
 }

@@ -14,6 +14,7 @@ public class Turret : MonoBehaviour
     public GameObject bulletPrefab;
     public float fireRate = 1f;
     private float fireCountdown = 0f;
+    public float attackDamage;
 
     [Header("Use Water gun")]
     public bool useWater = false;
@@ -30,7 +31,9 @@ public class Turret : MonoBehaviour
 
     public int sellTower;
     public static float bonusFirerate = 0;
-    public static int bonusDamage = 0;
+    public static float bonusDamage = 0;
+    public static int bonusDamageWater = 0;
+    public int MergePrice;
 
     WaveSpawner waves;
     private void Start()
@@ -147,9 +150,6 @@ public class Turret : MonoBehaviour
             fireCountdown -= Time.deltaTime;
         }
 
-
-
-
     }
 
     void LockOnTarget()
@@ -163,7 +163,7 @@ public class Turret : MonoBehaviour
     void Water()
     {
 
-        target.GetComponent<Enemy>().TakeDamage((damageOverTime + bonusDamage) * Time.deltaTime);
+        target.GetComponent<Enemy>().TakeDamage((damageOverTime + bonusDamageWater) * Time.deltaTime);
 
         if (!lineRenderer.enabled)
         {
@@ -181,7 +181,7 @@ public class Turret : MonoBehaviour
     {
         GameObject bulletGo = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGo.GetComponent<Bullet>();
-
+        bullet.attackDamage = attackDamage + bonusDamage;
         if (bullet != null)
         {
             bullet.Seek(target);
@@ -199,10 +199,16 @@ public class Turret : MonoBehaviour
         return sellTower;
     }
 
-    public static void HeroFirerate(float x, int y)
+    public int GetMergePrice()
     {
-        bonusFirerate = x;
-        bonusDamage = y;
+        return MergePrice;
+    }
+
+    public static void HeroFirerate(float x, float y, int z)
+    {
+        bonusFirerate += x;
+        bonusDamage += y;
+        bonusDamageWater += z;
     }
 
 }

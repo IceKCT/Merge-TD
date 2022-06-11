@@ -525,12 +525,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   turnSpeed: 5
-  starthealth: 150
+  starthealth: 75
   worth: 10
   scoreAmount: 15
   healthBar: {fileID: 8052626887624372590}
   enemyDamage: 10
-  dropItem: {fileID: 6064786960500330880, guid: 59689c5c6663393479c77cd737176bbe, type: 3}
+  hasItemTodrop: 1
+  dropItem: {fileID: 1115743463113073824, guid: 9dc0917bfa8578545b3a3a5fb086e20a, type: 3}
 --- !u!136 &5877521155917627028
 CapsuleCollider:
   m_ObjectHideFlags: 0

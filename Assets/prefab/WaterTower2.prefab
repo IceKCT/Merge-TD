@@ -5899,7 +5899,6 @@ GameObject:
   - component: {fileID: 2130063336}
   - component: {fileID: 2130063339}
   - component: {fileID: 2130063338}
-  - component: {fileID: 2130063337}
   m_Layer: 0
   m_Name: WaterTowerLV2_
   m_TagString: Untagged
@@ -6053,33 +6052,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &2130063337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130063335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeb4fb018f72e134d81fb222785f33eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 50
-  bulletPrefab: {fileID: 0}
-  fireRate: 1
-  useWater: 1
-  lineRenderer: {fileID: 2130063338}
-  effect: {fileID: 4528834265081984440}
-  damageOverTime: 70
-  enemyTag: Enemy
-  turnSpeed: 5
-  firePoint: {fileID: 1385633110}
-  clone: {fileID: 0}
-  rangeNode: 99999
-  newNode: {fileID: 0}
-  prefabLevel2: {fileID: 0}
-  sellTower: 75
 --- !u!1 &4528834265081984445
 GameObject:
   m_ObjectHideFlags: 0
@@ -10893,6 +10865,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4528834265090253332}
+  - component: {fileID: 3712038619994649162}
   m_Layer: 0
   m_Name: WaterTower2
   m_TagString: WaterTower2
@@ -10916,3 +10889,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3712038619994649162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4528834265090253335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb4fb018f72e134d81fb222785f33eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 50
+  bulletPrefab: {fileID: 0}
+  fireRate: 1
+  attackDamage: 0
+  useWater: 1
+  lineRenderer: {fileID: 2130063338}
+  effect: {fileID: 4528834265081984440}
+  damageOverTime: 70
+  enemyTag: Enemy
+  turnSpeed: 5
+  firePoint: {fileID: 1385633110}
+  sellTower: 75
+  MergePrice: 200

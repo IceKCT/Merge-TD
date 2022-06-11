@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
     public float explosionRadius = 0;
     public float attackDamage;
     private Enemy enemy;
+
+    public static float attackBonus = 0;
     public void Seek(Transform _target)
     {
         target = _target;
@@ -71,10 +73,11 @@ public class Bullet : MonoBehaviour
 
         if(e != null)
         {
-            e.TakeDamage(attackDamage);
+            e.TakeDamage(attackDamage + attackBonus);
         }
         
     }
+    
 
     private void OnDrawGizmosSelected()
     {

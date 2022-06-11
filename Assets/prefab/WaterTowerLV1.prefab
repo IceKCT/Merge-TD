@@ -4890,6 +4890,7 @@ MonoBehaviour:
   turnSpeed: 5
   firePoint: {fileID: 381694727328045648}
   sellTower: 50
+  MergePrice: 100
 --- !u!1 &453956486513898186
 GameObject:
   m_ObjectHideFlags: 0
