@@ -10908,7 +10908,7 @@ MonoBehaviour:
   useWater: 1
   lineRenderer: {fileID: 2130063338}
   effect: {fileID: 4528834265081984440}
-  damageOverTime: 70
+  damageOverTime: 90
   enemyTag: Enemy
   turnSpeed: 5
   firePoint: {fileID: 1385633110}

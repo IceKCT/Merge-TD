@@ -4882,10 +4882,11 @@ MonoBehaviour:
   range: 45
   bulletPrefab: {fileID: 0}
   fireRate: 1
+  attackDamage: 0
   useWater: 1
   lineRenderer: {fileID: 2873027667569316523}
   effect: {fileID: 381694728112975199}
-  damageOverTime: 45
+  damageOverTime: 70
   enemyTag: Enemy
   turnSpeed: 5
   firePoint: {fileID: 381694727328045648}

@@ -17,12 +17,12 @@ public class Enemy : MonoBehaviour
     private PlayerStat p;
     public int enemyDamage;
     public static int bonusMoney;
-    private float increaseHealthPerWave = 10;
+    
     WaveSpawner wave;
     [Header("ItemDroper")]
     public bool hasItemTodrop;
     public GameObject dropItem;
-
+    Animator anim;
     private void Start()
     {
         wave = WaveSpawner.instance;
@@ -31,7 +31,8 @@ public class Enemy : MonoBehaviour
         //health = starthealth + increaseHealthPerWave;
         healthDivine = health;
         p = GetComponent<PlayerStat>();
-        
+        anim = GetComponent<Animator>();
+
     }
     public void TakeDamage(float amount)
     {
@@ -96,8 +97,9 @@ public class Enemy : MonoBehaviour
 
     void EndPath()
     {
-        PlayerStat.live -= enemyDamage;
         
+        PlayerStat.live -= enemyDamage;
+        //p.playAnimation();
         Destroy(gameObject);
     }
 

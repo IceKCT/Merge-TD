@@ -14,15 +14,19 @@ public class PlayerStat : MonoBehaviour
     public static int score;
     private int monpersec = 0;
     public static int bonusMoney;
-
+    public  Animator anim;
+    public GameObject Live;
     public static PlayerStat instance;
     private void Awake()
     {
         instance = this;
+
     }
 
     void Start()
     {
+        anim = GetComponent<Animator>();
+        
         Money = startMoney;
         live = startLive;
         score = 0;
@@ -61,4 +65,8 @@ public class PlayerStat : MonoBehaviour
         bonusMoney = x;
     } 
     
+    public void playAnimation()
+    {
+        anim.SetTrigger("Damage");
+    }
 }
