@@ -525,7 +525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   turnSpeed: 5
-  starthealth: 75
+  starthealth: 150
   worth: 10
   scoreAmount: 15
   healthBar: {fileID: 8052626887624372590}

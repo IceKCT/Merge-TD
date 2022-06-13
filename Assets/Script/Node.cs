@@ -127,6 +127,7 @@ public class Node : MonoBehaviour
         turret = _turret;
         buildManager.DeNodeTower();
         shop.towerInhand = false;
+        FindObjectOfType<AudioManager>().Play("Building");
     }
 
     

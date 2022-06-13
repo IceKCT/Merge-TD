@@ -128,6 +128,10 @@ public class WaveSpawner : MonoBehaviour
             textTimeCountBetweenSpawn.gameObject.SetActive(true);
             if (countdown >= 0)
             countdown -= Time.deltaTime;
+            if(countdown <= 3)
+            {
+                FindObjectOfType<AudioManager>().Play("StartWave");
+            }
             anim.SetBool("count", true);
 
         }

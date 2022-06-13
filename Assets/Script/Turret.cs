@@ -185,7 +185,7 @@ public class Turret : MonoBehaviour
         if (bullet != null)
         {
             bullet.Seek(target);
-
+            FindObjectOfType<AudioManager>().Play("FireShoot");
         }
     }
     private void OnDrawGizmosSelected()
