@@ -14,7 +14,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2107261564
 Transform:
@@ -46,7 +46,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7647053569346037437
 Transform:
@@ -127,7 +127,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1742097014511348512
 Transform:
@@ -210,7 +210,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2267314365013572874
 Transform:
@@ -316,7 +316,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8476145546160508259
 Transform:
@@ -398,7 +398,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8235477974563625144
 Transform:
@@ -479,7 +479,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6392383018653796204
 Transform:
@@ -560,7 +560,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &290251370336268823
 Transform:
@@ -641,7 +641,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3580298223857343335
 Transform:
@@ -742,7 +742,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7757087840133688925
 Transform:
@@ -823,7 +823,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8714533398831299765
 Transform:
@@ -904,7 +904,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4733654283758819096
 Transform:
@@ -985,7 +985,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4750811718932261482
 Transform:
@@ -1066,7 +1066,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7256736431800330081
 Transform:
@@ -1147,7 +1147,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1049054592012100897
 Transform:
@@ -1228,7 +1228,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6112532037588225869
 Transform:
@@ -1309,7 +1309,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1000144442914918909
 Transform:
@@ -1390,7 +1390,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6666163163400103551
 Transform:
@@ -1471,7 +1471,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3324810066375791058
 Transform:
@@ -1552,7 +1552,7 @@ GameObject:
   m_TagString: FireTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7386984569982152991
 Transform:
