@@ -69,17 +69,12 @@ public class Node : MonoBehaviour
             {
                 buildManager.SelectNode(this);
                 return;
-                //Merge.Instance.nodeSelect.Add(this);
+                
             }
             else if (Merge.Instance.nodeSelect.Count != 0)
             {
                 Merge.Instance.nodeSelect.Add(this);
                 MergeArea.SetActive(false);
-                if (Merge.Instance.nodeSelect.Count >= 3)
-                {
-                    MergeArea.SetActive(false);
-                    Merge.Instance.DeleteAll();
-                }
                 buildManager.SelectNodeTwo(this);
               
             }
@@ -90,7 +85,6 @@ public class Node : MonoBehaviour
             if (NodeUI.checkMerge)
             {
                 Merge.Instance.nodeSelect[0].MergeArea.SetActive(false);
-                
             }
             Merge.Instance.DeleteAll();
             Debug.Log("Don't any Tower can Merge");
@@ -106,6 +100,7 @@ public class Node : MonoBehaviour
             
             BuildTurret(buildManager.GetTurretToBuild());
         }
+      
 
 
 
@@ -213,11 +208,13 @@ public class Node : MonoBehaviour
 
                     }
                     Merge.Instance.DeleteAll();
+                    NodeUI.checkMerge = false;
                 }
                 else
                 {
                     buildManager.NotEnoghMoneyPOPUP();
                     MergeArea.SetActive(false);
+                    NodeUI.checkMerge = false;
                     Merge.Instance.DeleteAll();
                 }
                 
@@ -237,8 +234,8 @@ public class Node : MonoBehaviour
             Merge.Instance.nodeSelect[0].MergeArea.SetActive(false);
             Merge.Instance.DeleteAll();
         }
-        
-        
+        Merge.Instance.DeleteAll();
+        NodeUI.checkMerge = false;
     }
     void OnMouseEnter()
     {

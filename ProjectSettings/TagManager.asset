@@ -13,6 +13,7 @@ TagManager:
   - FireTower3
   - Node
   - NodeUI
+  - Live
   layers:
   - Default
   - TransparentFX

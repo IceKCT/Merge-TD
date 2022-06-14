@@ -81,7 +81,7 @@ public class NodeUI : MonoBehaviour
     {
         target2.Merged();
         Buildmanager.instance.DeselectNode();
-        
+        Merge.Instance.DeleteAll();
     }
    
     public void SellTower()
