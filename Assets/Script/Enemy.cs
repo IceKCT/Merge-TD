@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     {
         wave = WaveSpawner.instance;
         target = Waypoints.points[0];
-        Stronger();
+        
         //health = starthealth + increaseHealthPerWave;
         healthDivine = health;
         p = GetComponent<PlayerStat>();
@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
     {
         health -= amount;
 
-        healthBar.fillAmount = health / healthDivine;
+        //healthBar.fillAmount = health / healthDivine;
         if(health <= 0)
         {
             Die();
@@ -103,38 +103,5 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void Stronger()
-    {
-        //increaseHealthPerWave = 50 + (10 * Mathf.Sqrt(increaseHealthPerWave + (wave.currentWaveIndex+1)));
-        float x = 1f;
-        for (int i = 0; i <= wave.currentWaveIndex; i++)
-        {
-            health = starthealth * x;
-            x += .25f;
-            if (i == 5)
-            {
-                speed += 3;
-            }
-            else if (i == 10)
-            {
-                speed += 6;
-            }
-            else if (i == 15)
-            {
-                speed += 9;
-            }
-            else if (i == 20)
-            {
-                speed += 12;
-            }
-            else if (i == 25)
-            {
-                speed += 15;
-            }else if (i == 30)
-            {
-                speed += 18;
-            }
-        }
-       
-    }
+    
 }

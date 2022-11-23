@@ -30,9 +30,7 @@ public class Turret : MonoBehaviour
     public Transform firePoint;
 
     public int sellTower;
-    public static float bonusFirerate = 0;
-    public static float bonusDamage = 0;
-    public static int bonusDamageWater = 0;
+
     public int MergePrice;
 
     WaveSpawner waves;
@@ -51,43 +49,9 @@ public class Turret : MonoBehaviour
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
         Stack<GameObject> nearestEnemys = new Stack<GameObject>(3);
+        
 
-
-        /*if (waves.enemylist != null)
-        {
-            for (int i = 0; i < waves.enemylist.Count; i++)
-            {
-                float distantTosecond = Vector3.Distance(transform.position, waves.enemylist[i].transform.position);
-                if (distantTosecond <= range)
-                {
-                    target = waves.enemylist[i].transform;
-                }
-                else
-                {
-                    target = null;
-                }
-            }
-        }
-        else
-        {
-            Debug.Log("Don't have Enemy");
-            return;
-        }
-        Debug.Log(target);*/
-
-
-        /*for (int i = 0; i < enemies.Length; i++)
-        {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemies[i].transform.position);
-
-            if (distanceToEnemy <= shortestDistance)
-            {
-                shortestDistance = distanceToEnemy;
-                nearestEnemys.Push(enemies[i]);
-                
-            }
-        }*/
-
+      
         foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
@@ -100,14 +64,6 @@ public class Turret : MonoBehaviour
         }
 
 
-        /*if (nearestEnemys != null && shortestDistance <= range)
-        {
-            target = nearestEnemys.Peek().transform;
-        }
-        else
-        {
-            target = null;
-        }*/
         if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
@@ -144,7 +100,7 @@ public class Turret : MonoBehaviour
             if (fireCountdown <= 0)
             {
                 Shoot();
-                fireCountdown = 1f / fireRate - bonusFirerate;
+                fireCountdown = 1f / fireRate;
             }
 
             fireCountdown -= Time.deltaTime;
@@ -163,7 +119,7 @@ public class Turret : MonoBehaviour
     void Water()
     {
 
-        target.GetComponent<Enemy>().TakeDamage((damageOverTime + bonusDamageWater) * Time.deltaTime);
+        target.GetComponent<Enemy>().TakeDamage((damageOverTime) * Time.deltaTime);
 
         if (!lineRenderer.enabled)
         {
@@ -181,7 +137,7 @@ public class Turret : MonoBehaviour
     {
         GameObject bulletGo = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGo.GetComponent<Bullet>();
-        bullet.attackDamage = attackDamage + bonusDamage;
+        bullet.attackDamage = attackDamage;
         if (bullet != null)
         {
             bullet.Seek(target);
@@ -204,11 +160,12 @@ public class Turret : MonoBehaviour
         return MergePrice;
     }
 
-    public static void HeroFirerate(float x, float y, int z)
+    private void OnTriggerEnter(Collider other)
     {
-        bonusFirerate += x;
-        bonusDamage += y;
-        bonusDamageWater += z;
+        if (other.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

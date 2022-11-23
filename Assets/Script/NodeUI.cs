@@ -71,7 +71,7 @@ public class NodeUI : MonoBehaviour
         Merge.Instance.nodeSelect.Add(target);
         if(Merge.Instance.nodeSelect.Count == 2)
         {
-            target.Merged();
+           
             
         }
         Buildmanager.instance.DeselectNode();
@@ -79,7 +79,7 @@ public class NodeUI : MonoBehaviour
 
     public void MergeNew()
     {
-        target2.Merged();
+     
         Buildmanager.instance.DeselectNode();
         Merge.Instance.DeleteAll();
     }

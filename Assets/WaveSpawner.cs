@@ -51,22 +51,11 @@ public class WaveSpawner : MonoBehaviour
     private void Start()
     {
         countdown = timeBetweenWave;
-        hero.SetActive(true);
+        StartCoroutine(StartNextWave(currentWaveIndex));
         anim = textTimeCountBetweenSpawn.gameObject.GetComponent<Animator>();
     }
     
-    public void MoneyHero()
-    {
-        Enemy.BonusHero(3);
-        StartCoroutine(StartNextWave(currentWaveIndex));
-        hero.SetActive(false);
-    }
-    public void FireRateHero()
-    {
-        Turret.HeroFirerate(0.2f,5f,10);
-        StartCoroutine(StartNextWave(currentWaveIndex));
-        hero.SetActive(false);
-    }
+  
     IEnumerator StartNextWave(int index)
     {
         startWave = true;
@@ -132,14 +121,14 @@ public class WaveSpawner : MonoBehaviour
             {
                 FindObjectOfType<AudioManager>().Play("StartWave");
             }
-            anim.SetBool("count", true);
+            //anim.SetBool("count", true);
 
         }
         else
         {
             textTimeCountBetweenSpawn.gameObject.SetActive(false);
             countdown = timeBetweenWave;
-            anim.SetBool("count", false);
+            //anim.SetBool("count", false);
         }
 
 

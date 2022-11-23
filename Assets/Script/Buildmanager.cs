@@ -5,6 +5,7 @@ using UnityEngine;
 public class Buildmanager : MonoBehaviour
 {
     public static Buildmanager instance;
+    public GameObject ResearchUI;
 
     private void Awake()
     {
@@ -16,7 +17,7 @@ public class Buildmanager : MonoBehaviour
         instance = this;
         
     }
-    public GameObject fireTurretPrefab, waterTurret, fireTurretPrefabLV2, waterTurretLV2, fireTurretPrefabLV3, waterTurretLV3;
+    //public GameObject fireTurretPrefab, waterTurret, fireTurretPrefabLV2, waterTurretLV2, fireTurretPrefabLV3, waterTurretLV3;
     public GameObject waterEffect, fireEffect;
 
 
@@ -24,7 +25,8 @@ public class Buildmanager : MonoBehaviour
     private GameObject turretToBuild;
     private Node selectedNode;
     public float closePOPUP = 4;
-    
+
+    public GameObject frameTowerPrefab;
 
     public GameObject popUPcantmerge, popUPNotEnough, popUpOFR, popUpSelectAnother;
 
@@ -55,7 +57,6 @@ public class Buildmanager : MonoBehaviour
     {
         turretToBuild = turret;
         selectedNode = null;
-
         nodeUI.Hide();
     }
 
@@ -101,6 +102,10 @@ public class Buildmanager : MonoBehaviour
         popUpOFR.SetActive(false);
     } 
 
-
+    public void IsitWork()
+    {
+        Debug.Log(turretToBuild);
+        Debug.Log("Its work!!");
+    }
 
 }
