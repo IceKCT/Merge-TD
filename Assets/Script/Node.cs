@@ -63,8 +63,11 @@ public class Node : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
+            
+        if (buildManager.CanBuild)
+        {
             BuildTurret(buildManager.GetTurretToBuild());
-
+        }
 
         if (!buildManager.CanBuild)
             return;
