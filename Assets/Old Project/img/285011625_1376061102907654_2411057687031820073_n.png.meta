@@ -48,7 +48,7 @@ TextureImporter:
       213: 4858139957669977243
     second: 285011625_1376061102907654_2411057687031820073_n_14
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -69,6 +69,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -107,6 +108,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -134,6 +136,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -472,6 +486,22 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      285011625_1376061102907654_2411057687031820073_n_0: -6841892360453957539
+      285011625_1376061102907654_2411057687031820073_n_4: 3999150566732531259
+      285011625_1376061102907654_2411057687031820073_n_10: 7944392789297244231
+      285011625_1376061102907654_2411057687031820073_n_14: 4858139957669977243
+      285011625_1376061102907654_2411057687031820073_n_2: -3495373398000653323
+      285011625_1376061102907654_2411057687031820073_n_11: 4291606614947392508
+      285011625_1376061102907654_2411057687031820073_n_13: -5302714776894129182
+      285011625_1376061102907654_2411057687031820073_n_6: 8144677154846018904
+      285011625_1376061102907654_2411057687031820073_n_8: 618633488882745075
+      285011625_1376061102907654_2411057687031820073_n_5: 7424199806617268955
+      285011625_1376061102907654_2411057687031820073_n_1: -399404249167621245
+      285011625_1376061102907654_2411057687031820073_n_3: 7825682003758507189
+      285011625_1376061102907654_2411057687031820073_n_12: -7093742284196805753
+      285011625_1376061102907654_2411057687031820073_n_7: -299319807513612252
+      285011625_1376061102907654_2411057687031820073_n_9: 8418957567418645511
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

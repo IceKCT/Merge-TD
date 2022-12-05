@@ -33,7 +33,7 @@ TextureImporter:
       213: 6949486274898707641
     second: collection-set-retro-game-bit-pixel-speech-bubble-balloon-text-box-banner-black-white-color-flat-design-vector-illustration-184446752-removebg-preview_9
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -54,6 +54,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -92,6 +93,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -119,6 +121,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -352,6 +366,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      collection-set-retro-game-bit-pixel-speech-bubble-balloon-text-box-banner-black-white-color-flat-design-vector-illustration-184446752-removebg-preview_8: -7162316718741510606
+      collection-set-retro-game-bit-pixel-speech-bubble-balloon-text-box-banner-black-white-color-flat-design-vector-illustration-184446752-removebg-preview_3: -3005734192241195944
+      collection-set-retro-game-bit-pixel-speech-bubble-balloon-text-box-banner-black-white-color-flat-design-vector-illustration-184446752-removebg-preview_5: -7323130014274348556
+      collection-set-retro-game-bit-pixel-speech-bubble-balloon-text-box-banner-black-white-color-flat-design-vector-illustration-184446752-removebg-preview_1: 5771122912165320960
+      collection-set-retro-game-bit-pixel-speech-bubble-balloon-text-box-banner-black-white-color-flat-design-vector-illustration-184446752-removebg-preview_9: 6949486274898707641
+      collection-set-retro-game-bit-pixel-speech-bubble-balloon-text-box-banner-black-white-color-flat-design-vector-illustration-184446752-removebg-preview_0: 3052013847093744431
+      collection-set-retro-game-bit-pixel-speech-bubble-balloon-text-box-banner-black-white-color-flat-design-vector-illustration-184446752-removebg-preview_2: -515419186889232478
+      collection-set-retro-game-bit-pixel-speech-bubble-balloon-text-box-banner-black-white-color-flat-design-vector-illustration-184446752-removebg-preview_4: 8756899528797467704
+      collection-set-retro-game-bit-pixel-speech-bubble-balloon-text-box-banner-black-white-color-flat-design-vector-illustration-184446752-removebg-preview_7: 6213960530145492960
+      collection-set-retro-game-bit-pixel-speech-bubble-balloon-text-box-banner-black-white-color-flat-design-vector-illustration-184446752-removebg-preview_6: -6684425974932111059
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
