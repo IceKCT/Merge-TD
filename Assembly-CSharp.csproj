@@ -70,6 +70,7 @@
     <Compile Include="Assets\Script\Waypoints.cs" />
     <Compile Include="Assets\Script\Enemy.cs" />
     <Compile Include="Assets\Script\MoneyDropItem.cs" />
+    <Compile Include="Assets\AOE.cs" />
     <Compile Include="Assets\Script\LootGenerator.cs" />
     <Compile Include="Assets\Script\Project Script\Research.cs" />
     <Compile Include="Assets\Script\Card Script\ControlCard.cs" />
@@ -98,7 +99,7 @@
     <Compile Include="Assets\Script\AudioManager.cs" />
     <Compile Include="Assets\Script\UI Script\SettingButton.cs" />
     <Compile Include="Assets\Script\Card Script\ResearchCard.cs" />
-    <Compile Include="Assets\AOE.cs" />
+    <Compile Include="Assets\AuraBuff.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Old Project\TextMesh Pro\Shaders\TMPro.cginc" />

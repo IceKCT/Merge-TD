@@ -5,7 +5,7 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     private Transform target;
-
+    public bool isBuffTurret = false;
 
     [Header("General")]
     public float range = 15f;
@@ -38,7 +38,14 @@ public class Turret : MonoBehaviour
     {
 
         waves = WaveSpawner.instance;
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        if (isBuffTurret == false)
+        {
+            InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        }
+        else
+        {
+            Debug.Log("Transform in to buff turret");
+        }
         Debug.Log(waves == null);
 
     }
@@ -133,7 +140,7 @@ public class Turret : MonoBehaviour
         effect.transform.rotation = Quaternion.LookRotation(dir);
 
     }
-    void Shoot()
+    public void Shoot()
     {
         GameObject bulletGo = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGo.GetComponent<Bullet>();
@@ -167,5 +174,4 @@ public class Turret : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }
