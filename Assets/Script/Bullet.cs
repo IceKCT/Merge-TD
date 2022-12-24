@@ -12,6 +12,10 @@ public class Bullet : MonoBehaviour
     private Enemy enemy;
 
     public static float attackBonus = 0;
+
+    public GameObject AOEPrefab;
+    public bool isAOE = false;
+
     public void Seek(Transform _target)
     {
         target = _target;
@@ -38,11 +42,11 @@ public class Bullet : MonoBehaviour
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
 
-    void HitTarget()
+    public void HitTarget()
     {
-        
-       
-        if(explosionRadius > 0f)
+
+
+        if (explosionRadius > 0f)
         {
             Explode();
         }
@@ -52,6 +56,7 @@ public class Bullet : MonoBehaviour
         }
         Damage(target);
         Destroy(gameObject);
+        AOE();
     }
     void Explode()
     {
@@ -64,7 +69,7 @@ public class Bullet : MonoBehaviour
             }
         }
     }
-    void Damage(Transform enemy)
+    public void Damage(Transform enemy)
     {
         Enemy e = enemy.GetComponent<Enemy>();
 
@@ -81,4 +86,14 @@ public class Bullet : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
+    void AOE()
+    {
+        if (isAOE == true)
+        {
+            var cloneAOE = Instantiate(AOEPrefab, transform.position, Quaternion.identity);
+            Destroy(cloneAOE, 5.0f);
+        }
+        
+    }
+
 }
