@@ -27,8 +27,8 @@ public class Enemy : MonoBehaviour
     {
         wave = WaveSpawner.instance;
         target = Waypoints.points[0];
-        
-        //health = starthealth + increaseHealthPerWave;
+
+        health = starthealth;
         healthDivine = health;
         p = GetComponent<PlayerStat>();
         anim = GetComponent<Animator>();
@@ -37,8 +37,8 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
-
-        //healthBar.fillAmount = health / healthDivine;
+        Debug.Log(health);
+        healthBar.fillAmount = health / healthDivine;
         if(health <= 0)
         {
             Die();

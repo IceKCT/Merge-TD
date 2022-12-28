@@ -6,7 +6,6 @@ public class Tower : MonoBehaviour
 {
     private Transform target;
 
-
     [Header("General")]
     public float range = 15f;
 
