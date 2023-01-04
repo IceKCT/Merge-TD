@@ -59,6 +59,7 @@
     <Compile Include="Assets\Script\Card Script\CardManager.cs" />
     <Compile Include="Assets\Script\Turret.cs" />
     <Compile Include="Assets\Script\Drag.cs" />
+    <Compile Include="Assets\RandomCompPerMatch.cs" />
     <Compile Include="Assets\Script\ScoreManager.cs" />
     <Compile Include="Assets\Script\Project Script\ResearchUI.cs" />
     <Compile Include="Assets\Script\Project Script\TowerOption.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Assets\Script\Enemy.cs" />
     <Compile Include="Assets\Script\MoneyDropItem.cs" />
     <Compile Include="Assets\AOE.cs" />
+    <Compile Include="Assets\PlayFabLogin.cs" />
     <Compile Include="Assets\Script\LootGenerator.cs" />
     <Compile Include="Assets\Script\Project Script\Research.cs" />
     <Compile Include="Assets\Script\Card Script\ControlCard.cs" />
@@ -97,9 +99,9 @@
     <Compile Include="Assets\Script\LootTable.cs" />
     <Compile Include="Assets\Script\NodeUI.cs" />
     <Compile Include="Assets\Script\AudioManager.cs" />
+    <Compile Include="Assets\AuraBuff.cs" />
     <Compile Include="Assets\Script\UI Script\SettingButton.cs" />
     <Compile Include="Assets\Script\Card Script\ResearchCard.cs" />
-    <Compile Include="Assets\AuraBuff.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Old Project\TextMesh Pro\Shaders\TMPro.cginc" />
