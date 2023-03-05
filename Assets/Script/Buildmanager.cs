@@ -17,8 +17,10 @@ public class Buildmanager : MonoBehaviour
         instance = this;
         
     }
-    //public GameObject fireTurretPrefab, waterTurret, fireTurretPrefabLV2, waterTurretLV2, fireTurretPrefabLV3, waterTurretLV3;
+   
     public GameObject waterEffect, fireEffect;
+
+    public GameObject uiTower;
 
 
     public NodeUI nodeUI;
@@ -35,29 +37,31 @@ public class Buildmanager : MonoBehaviour
 
     public bool CloseSprite { get { return turretToBuild == null; } }
 
+
+
     public void SelectNode(Node node)
     {
         selectedNode = node;
+        TowerInput.instance.SetTarget(node);
+        TowerInput.instance.mainHand.SetActive(false);
+        TowerInput.instance.elementHand.SetActive(true);
+        TowerInput.instance.mainHandButton.SetActive(false);
         turretToBuild = null;
-        nodeUI.SetTarget(node); 
+        uiTower.transform.position = new Vector3(960, 540, 0);
     }
     
-    public void SelectNodeTwo(Node node)
-    {
-        nodeUI.SetTargetTwo(node);
-    }
 
     public void DeselectNode()
     {
         selectedNode = null;
-        nodeUI.Hide();
+     
     }
 
     public void SelectTurretToBuild(GameObject turret)
     {
         turretToBuild = turret;
         selectedNode = null;
-        nodeUI.Hide();
+ 
     }
 
     public void DeNodeTower()

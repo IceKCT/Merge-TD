@@ -280,6 +280,7 @@ MonoBehaviour:
   firePoint: {fileID: 2107261564}
   sellTower: 50
   MergePrice: 100
+  uiTower: {fileID: 0}
 --- !u!65 &1831041935
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -289,7 +290,7 @@ BoxCollider:
   m_GameObject: {fileID: 2267314365013572875}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 7.49, y: 7.45, z: 12}
   m_Center: {x: 0, y: 2.61, z: 1.08}

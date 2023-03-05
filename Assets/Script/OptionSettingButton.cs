@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class OptionSettingButton : MonoBehaviour
+public class OptionSettingButton : MonoBehaviourPunCallbacks
 {
     public GameObject optionMenu;
     public GameObject settingButton;
@@ -37,7 +39,6 @@ public class OptionSettingButton : MonoBehaviour
     {
         optionMenu.SetActive(true);
         settingButton.SetActive(false);
-        Time.timeScale = 0f;
         isGamePause = true;
 
     }
@@ -64,7 +65,6 @@ public class OptionSettingButton : MonoBehaviour
         optionMenu.SetActive(false);
         settingButton.SetActive(true);
         isGamePause = false;
-        Time.timeScale = 1f;
     }
     public void ResumeGameTwo()
     {
@@ -73,13 +73,15 @@ public class OptionSettingButton : MonoBehaviour
         SettingPanel.SetActive(false);
         isGamePause = false;
         isGameSetting = false;
-        Time.timeScale = 1f;
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene("samplescene");
+        PhotonNetwork.Disconnect();
+        //PhotonNetwork.LoadLevel(0);
     }
-
-    
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

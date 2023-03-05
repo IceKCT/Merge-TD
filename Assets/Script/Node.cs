@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
+
+
     public Color hoverColor;
     public Color notEnoughMoney;
     public Color colorCanMerge;
@@ -16,9 +18,9 @@ public class Node : MonoBehaviour
 
     [Header("Optional")]
     public GameObject turret;
-    [HideInInspector]
-    public static TurretBlueprint mergeTower;
    
+
+    
 
     public GameObject effectPoint;
     private Renderer rend;
@@ -31,8 +33,8 @@ public class Node : MonoBehaviour
     public bool hasTower = false;
 
 
-    public GameObject MergeArea;
-    public float areaRadius;
+
+    
 
 
     private void Start()
@@ -41,16 +43,9 @@ public class Node : MonoBehaviour
         startColor = rend.material.color;
         buildManager = Buildmanager.instance;
         shop = Shop.instance;
-     
-        
-   
+  
     }
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, areaRadius);
-    }
-
+  
     public Vector3 GetBuildPosition()
     {
         return transform.position + Positionoffset;
@@ -63,7 +58,14 @@ public class Node : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
+        if (turret != null)
+        {
+            buildManager.SelectNode(this);
+        }
+        if (buildManager.CanBuild)
+        {
             BuildTurret(buildManager.GetTurretToBuild());
+        }
 
 
         if (!buildManager.CanBuild)
@@ -75,7 +77,7 @@ public class Node : MonoBehaviour
 
     
 
-    void BuildTurret(GameObject blueprint)
+    public void BuildTurret(GameObject blueprint)
     {
         GameObject _turret = (GameObject)Instantiate(blueprint, GetBuildPosition(), Quaternion.identity);
         getPos = GetBuildPosition();
@@ -112,6 +114,18 @@ public class Node : MonoBehaviour
        
 
 
+    }
+
+    public void BuildElement(GameObject blueprint)
+    {
+        Destroy(turret);
+        GameObject _turret = (GameObject)Instantiate(blueprint, GetBuildPosition(), Quaternion.identity);
+        getPos = GetBuildPosition();
+        turret = _turret;
+        buildManager.DeNodeTower();
+
+
+        FindObjectOfType<AudioManager>().Play("Building");
     }
 
     void OnMouseExit()

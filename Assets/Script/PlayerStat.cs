@@ -20,7 +20,6 @@ public class PlayerStat : MonoBehaviour
     private void Awake()
     {
         instance = this;
-
     }
 
     void Start()
@@ -44,11 +43,14 @@ public class PlayerStat : MonoBehaviour
         }
 
         Money += (monpersec + bonusMoney) * Time.deltaTime;
+        PlayerPrefs.SetString("MONEY", Money.ToString());
+        PlayerPrefs.SetString("HEALTH", live.ToString());
     }
 
     public void getMoney(float amount)
     {
         Money += amount;
+        
     }
 
     public void GetScore(int x)

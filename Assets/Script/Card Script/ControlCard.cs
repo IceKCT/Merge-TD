@@ -27,9 +27,12 @@ public class ControlCard : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.SetParent(CardManager.LastEnterDropzone);
-       
-        img.raycastTarget = true;
+      
+            transform.SetParent(CardManager.LastEnterDropzone);
+
+            img.raycastTarget = true;
+        
+    
     }
 
     // Start is called before the first frame update

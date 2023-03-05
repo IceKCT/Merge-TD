@@ -101,7 +101,7 @@ public class Enemy : MonoBehaviour
         PlayerStat.live -= enemyDamage;
         //p.playAnimation();
         Destroy(gameObject);
+
     }
 
-    
 }

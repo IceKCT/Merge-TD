@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class NodeUI : MonoBehaviour
 {
-    public GameObject UI;
+   /* public GameObject UI;
     private Node target,target2;
 
     private Camera cam;
@@ -94,7 +94,7 @@ public class NodeUI : MonoBehaviour
         Buildmanager.instance.DeselectNode();
     }
 
-    
+    */
 
     
 }
