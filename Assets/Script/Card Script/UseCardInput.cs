@@ -11,7 +11,7 @@ public class UseCardInput : Dropzone
     
     public GameObject self;
     [Header("Building")]
-    public GameObject frameTowerLv1,reseach;
+    public GameObject researchElem,reseach;
   
 
     private void Awake()
@@ -48,7 +48,7 @@ public class UseCardInput : Dropzone
         transform.position = new Vector3(-200, 0, 0);
         if (self.transform.Find("Dummycard"))
         {
-            buildManager.SelectTurretToBuild(frameTowerLv1);
+            buildManager.SelectTurretToBuild(researchElem);
             Debug.Log("Get Tower");
             
             
@@ -59,4 +59,5 @@ public class UseCardInput : Dropzone
         self.transform.DetachChildren();
        
     }
+
 }

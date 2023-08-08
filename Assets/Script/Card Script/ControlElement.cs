@@ -30,6 +30,8 @@ public class ControlElement : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         transform.SetParent(CardManager.LastEnterDropzone);
 
         img.raycastTarget = true;
+        GameObject droppedCard = eventData.pointerDrag;
+        Debug.Log("Dropped card: " + droppedCard.name);
     }
 
 

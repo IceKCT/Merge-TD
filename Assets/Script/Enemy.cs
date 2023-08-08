@@ -23,19 +23,21 @@ public class Enemy : MonoBehaviour
     public bool hasItemTodrop;
     public GameObject dropItem;
     Animator anim;
+
+    public bool isDemi, isBeast, isMech, isUndead;
     private void Start()
     {
         wave = WaveSpawner.instance;
         target = Waypoints.points[0];
-
-        health = starthealth;
+        int x = wave.currentWaveIndex;
+        health = starthealth + (x * 10);
         healthDivine = health;
         p = GetComponent<PlayerStat>();
         anim = GetComponent<Animator>();
-
     }
     public void TakeDamage(float amount)
     {
+      
         health -= amount;
         Debug.Log(health);
         healthBar.fillAmount = health / healthDivine;
@@ -101,7 +103,7 @@ public class Enemy : MonoBehaviour
         PlayerStat.live -= enemyDamage;
         //p.playAnimation();
         Destroy(gameObject);
-
     }
 
+    
 }

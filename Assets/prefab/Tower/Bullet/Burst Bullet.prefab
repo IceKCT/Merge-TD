@@ -115,3 +115,4 @@ MonoBehaviour:
   attackDamage: 70
   AOEPrefab: {fileID: 0}
   isAOE: 0
+  effect: {fileID: 4589270162309807770, guid: 5b167bfce15f5134187eeb8b3de2ef21, type: 3}

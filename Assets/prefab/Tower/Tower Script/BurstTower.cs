@@ -111,6 +111,6 @@ public class BurstTower : MonoBehaviour
     {
 
         uiTower.transform.position = new Vector3(960, 540, 0);
-        towerInput.SelectTowerTarget(this.gameObject);
+        //towerInput.SelectTowerTarget(this);
     }
 }

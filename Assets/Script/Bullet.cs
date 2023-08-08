@@ -16,9 +16,15 @@ public class Bullet : MonoBehaviour
     public GameObject AOEPrefab;
     public bool isAOE = false;
 
+    public GameObject effect;
+    public float bonusAttack;
+    public float bonusExplodRadius = 0;
+    public static bool knightOn = false;
+    public float bonusAoeTime = 0;
     public void Seek(Transform _target)
     {
         target = _target;
+       
     }
 
     // Update is called once per frame
@@ -26,7 +32,9 @@ public class Bullet : MonoBehaviour
     {
         if(target == null)
         {
+            Instantiate(effect, transform.position, Quaternion.identity);
             Destroy(gameObject);
+
             return;
         }
 
@@ -54,13 +62,14 @@ public class Bullet : MonoBehaviour
         {
 
         }
+        Instantiate(effect, transform.position, Quaternion.identity);
         Damage(target);
         Destroy(gameObject);
         AOE();
     }
     void Explode()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius + bonusExplodRadius);
         foreach (Collider collider in colliders)
         {
             if(collider.tag == "Enemy")
@@ -75,11 +84,16 @@ public class Bullet : MonoBehaviour
 
         if(e != null)
         {
+          
+            
             e.TakeDamage(attackDamage);
         }
         
     }
-    
+
+
+
+ 
 
     private void OnDrawGizmosSelected()
     {
@@ -91,7 +105,7 @@ public class Bullet : MonoBehaviour
         if (isAOE == true)
         {
             var cloneAOE = Instantiate(AOEPrefab, transform.position, Quaternion.identity);
-            Destroy(cloneAOE, 5.0f);
+            Destroy(cloneAOE, 5.0f + bonusAoeTime);
         }
         
     }

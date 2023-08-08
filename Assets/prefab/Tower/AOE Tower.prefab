@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8102077283723389895}
   - component: {fileID: 8567570894547234637}
-  m_Layer: 0
+  - component: {fileID: 5492528309687669520}
+  m_Layer: 12
   m_Name: AOE Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,12 +49,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 45
   attackDamage: 10
+  bonusAttack: 0
   bulletPrefab: {fileID: 2978563253746471100, guid: dd8ebd920f33c7b42b01de5454ad2c07, type: 3}
   fireRate: 1
   enemyTag: Enemy
   turnSpeed: 5
   firePoint: {fileID: 6226694870546259177}
+  priceTower: 50
+  lvl2BaseTower: 0
+  lvl3BaseTower: 0
+  lvlBaseMax: 0
+  lvl2BurstTower: 0
+  lvl3BurstTower: 0
+  lvlBurstMax: 0
+  lvl2Aoe: 0
+  lvl3Aoe: 0
+  lvlMaxAoe: 0
   uiTower: {fileID: 0}
+  isFire: 0
+  isFire2: 0
+  isFire3: 0
+  isPoison: 0
+  isPoison2: 0
+  isPoison3: 0
+  isAcid: 0
+  isAcid2: 0
+  isAcid3: 0
+  isElec: 0
+  isElec2: 0
+  isElec3: 0
+  isBurst: 0
+  isBurst2: 0
+  isBurst3: 0
+  isAura: 0
+  isRuby: 0
+  isSapphire: 0
+  isEmerald: 0
+  isDiamond: 0
+  Tower:
+    serializedVersion: 2
+    m_Bits: 0
+  currentCardinTower: 0
+--- !u!65 &5492528309687669520
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525160503097955581}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 17.8, y: 13.71, z: 17.68}
+  m_Center: {x: 0, y: 6.4, z: 0}
 --- !u!1 &2912602320495687845
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,7 +115,7 @@ GameObject:
   - component: {fileID: 3067709808202062566}
   - component: {fileID: 652602145065183535}
   - component: {fileID: 5795929038416742609}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +213,7 @@ GameObject:
   - component: {fileID: 1276784545136605411}
   - component: {fileID: 2412596072491248852}
   - component: {fileID: 3301365312963320619}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +307,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6226694870546259177}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: firepoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +341,7 @@ GameObject:
   - component: {fileID: 3692855619602741106}
   - component: {fileID: 4812821901464323332}
   - component: {fileID: 4737119189128460735}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}

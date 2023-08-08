@@ -75,7 +75,7 @@ public class OptionSettingButton : MonoBehaviourPunCallbacks
         isGameSetting = false;
     }
 
-    public void Restart()
+    public void MainMenuButton()
     {
         PhotonNetwork.Disconnect();
         //PhotonNetwork.LoadLevel(0);

@@ -11,6 +11,7 @@ public class ScoreBoardItem : MonoBehaviourPunCallbacks
     public Text userNameText;
     public Text healthText;
     public Text moneyText;
+    public Text scoreText;
 
     Player player;
     public void Initialize(Player player)
@@ -31,13 +32,17 @@ public class ScoreBoardItem : MonoBehaviourPunCallbacks
             healthText.text = health.ToString();
             //Debug.Log("Update health");
         }
+        if (player.CustomProperties.TryGetValue(("score"), out object score))
+        {
+            scoreText.text = score.ToString();
+        }
     }
 
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
     {
-        if (targetPlayer == player )
+        if (targetPlayer == player)
         {
-            if (changedProps.ContainsKey("money") || changedProps.ContainsKey("health"))
+            if (changedProps.ContainsKey("money") || changedProps.ContainsKey("health") || changedProps.ContainsKey("score"))
             {
                 //Debug.Log("targetplayer == player");
                 UpdateStatus();

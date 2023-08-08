@@ -71,6 +71,7 @@ public class Buildprogress : MonoBehaviour
             slideOBJ.SetActive(false);
             CancelInvoke();
             alert.SetActive(true);
+
             buildProgress = maxTime;
         }
 

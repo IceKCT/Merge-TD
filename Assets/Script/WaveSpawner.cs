@@ -18,6 +18,7 @@ public class WaveSpawner : MonoBehaviour
 
     public Text textTimeCountBetweenSpawn;
     public Text currentWaveText;
+    public Text textCountdownInWave;
 
     public Wave[] waves;
 
@@ -30,7 +31,10 @@ public class WaveSpawner : MonoBehaviour
     private bool finishedSpawn;
 
     private float countdown;
+    public float timeInWave;
+    public float stableTimeinWave;
     private bool startWave = false;
+    private bool endTime = false;
     private Animator anim;
 
     public Image img1, img2, img3;
@@ -39,6 +43,14 @@ public class WaveSpawner : MonoBehaviour
 
     public GameObject selectElementUI;
 
+    public GameObject hand;
+
+    private Enemy enemy;
+
+    public GameObject merchantPanel, KnightPanel;
+
+    public bool isHeroSelect;
+    public bool isGameStart;
     private void Awake()
     {
         if (instance != null)
@@ -52,16 +64,15 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        countdown = timeBetweenWave;
-        StartCoroutine(StartNextWave(currentWaveIndex));
-        anim = textTimeCountBetweenSpawn.gameObject.GetComponent<Animator>();
-        //selectElementUI.SetActive(true);
+        enemy = GetComponent<Enemy>();
+        selectElementUI.SetActive(true);
     }
-    
-  
+
+
     IEnumerator StartNextWave(int index)
     {
         startWave = true;
+        timeInWave = stableTimeinWave;
         yield return new WaitForSeconds(timeBetweenWave);
         StartCoroutine(SpawnWave(index));
     }
@@ -79,12 +90,11 @@ public class WaveSpawner : MonoBehaviour
             Enemy randomEnemy = currentWave.enemies[Random.Range(0, currentWave.enemies.Length)];
             Instantiate(randomEnemy, SpawnPoint.position, SpawnPoint.rotation);
             enemylist.Add(randomEnemy);
-            
 
-            if(i == currentWave.count - 1)
+            if (i == currentWave.count - 1)
             {
                 finishedSpawn = true;
-                
+
                 //randomEnemy.Stronger(80 * Mathf.Sqrt(currentWaveIndex + 1));
 
             }
@@ -98,12 +108,13 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
-       
-        if (finishedSpawn == true && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+
+        if (finishedSpawn == true && endTime == true)
         {
-            
+
             finishedSpawn = false;
-            if(currentWaveIndex + 1 < waves.Length)
+            endTime = false;
+            if (currentWaveIndex + 1 < waves.Length)
             {
                 enemylist.Clear();
                 currentWaveIndex++;
@@ -111,7 +122,6 @@ public class WaveSpawner : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("EndGameScene");
                 Debug.Log("Game Finished");
             }
         }
@@ -119,23 +129,68 @@ public class WaveSpawner : MonoBehaviour
         {
             textTimeCountBetweenSpawn.gameObject.SetActive(true);
             if (countdown >= 0)
-            countdown -= Time.deltaTime;
-            if(countdown <= 3)
+                countdown -= Time.deltaTime;
+            if (countdown <= 3)
             {
                 FindObjectOfType<AudioManager>().Play("StartWave");
             }
-            //anim.SetBool("count", true);
 
         }
         else
         {
             textTimeCountBetweenSpawn.gameObject.SetActive(false);
             countdown = timeBetweenWave;
+
+
+            if (timeInWave > 0)
+            {
+                textCountdownInWave.gameObject.SetActive(true);
+                timeInWave -= Time.deltaTime;
+
+            }
+            else
+            {
+                endTime = true;
+                textCountdownInWave.gameObject.SetActive(false);
+            }
+
             //anim.SetBool("count", false);
         }
 
 
+
         currentWaveText.text = (currentWaveIndex + 1).ToString();
+        textCountdownInWave.text = Mathf.Floor(timeInWave).ToString();
         textTimeCountBetweenSpawn.text = Mathf.Floor(countdown).ToString();
+        if (isHeroSelect == true && Timer.instance.timerisover == true && isGameStart == false)
+        {
+            startWave = true;
+            StartCoroutine(StartNextWave(currentWaveIndex));
+            hand.SetActive(true);
+            isGameStart = true;
+        }
+        if (PlayerStat.instance.isGameEnd == true)
+        {
+            StopAllCoroutines();
+        }
+    }
+    public void MerchantHero()
+    {
+        countdown = timeBetweenWave;
+        isHeroSelect = true;
+        anim = textTimeCountBetweenSpawn.gameObject.GetComponent<Animator>();       
+        selectElementUI.SetActive(false);
+        merchantPanel.SetActive(true);
+        Enemy.BonusHero(10);
+    }
+
+    public void KnightHero()
+    {
+        countdown = timeBetweenWave;
+        isHeroSelect = true;
+        anim = textTimeCountBetweenSpawn.gameObject.GetComponent<Animator>();
+        selectElementUI.SetActive(false);
+        KnightPanel.SetActive(true);
+        BaseTower.knightOn = true;
     }
 }

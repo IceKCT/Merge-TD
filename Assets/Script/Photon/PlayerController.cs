@@ -40,5 +40,6 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("RPC_STATUS");
         PlayerManager.Find(info.Sender).GetMoney();
         PlayerManager.Find(info.Sender).GetHealth();
+        PlayerManager.Find(info.Sender).GetScore();
     }
 }

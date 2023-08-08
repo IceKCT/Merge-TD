@@ -14,10 +14,15 @@ public class Timer : MonoBehaviourPunCallbacks
     int startTime = 30;
     [SerializeField] int timer = 30;
     bool startTimer = false;
-
-    void Start()
+    public bool timerisover;
+    public static Timer instance;
+    private void Awake()
     {
-        Time.timeScale = 0;
+        if (instance != null)
+        {
+            return;
+        }
+        instance = this;
     }
 
     private void Update()
@@ -40,11 +45,14 @@ public class Timer : MonoBehaviourPunCallbacks
         }
         else
         {
-            timerIncrementValue = ((int)PhotonNetwork.Time - startTime);
-            timerText.text = (timer - timerIncrementValue).ToString();
+            if (timerisover == false)
+            {
+                timerIncrementValue = ((int)PhotonNetwork.Time - startTime);
+                timerText.text = (timer - timerIncrementValue).ToString();
+            }
             if (timerIncrementValue >= timer)
             {
-                Time.timeScale = 1;
+                timerisover = true;
                 preparingWindow.SetActive(false);
             }
         }       

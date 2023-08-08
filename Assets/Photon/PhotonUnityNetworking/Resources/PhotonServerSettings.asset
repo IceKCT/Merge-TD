@@ -45,6 +45,10 @@ MonoBehaviour:
   - RPC_OnClickReadyButton
   - RPC_GetReadyStatus
   - RPC_Timer
+  - RPC_GetFinalHealth
+  - RPC_GetFinalMoney
+  - RPC_GetFinalScore
+  - RPC_GetScore
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0

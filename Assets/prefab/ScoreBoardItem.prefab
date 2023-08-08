@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8278202155563381544}
   - component: {fileID: 8278202155563381545}
   m_Layer: 5
-  m_Name: UsernameText
+  m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 0}
+  m_SizeDelta: {x: 200, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &8278202155563381544
 CanvasRenderer:
@@ -79,7 +79,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'USERNAME:'
+  m_Text: PLAYERNAME
 --- !u!1 &8278202155671546568
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,9 +187,9 @@ RectTransform:
   m_Children:
   - {fileID: 8278202155671546571}
   - {fileID: 8278202155563381542}
-  - {fileID: 8278202156644936527}
-  - {fileID: 8278202156401908853}
   - {fileID: 8278202156261648466}
+  - {fileID: 8278202156401908853}
+  - {fileID: 8278202156644936527}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -211,8 +211,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userNameText: {fileID: 8278202155563381545}
-  healthText: {fileID: 8278202156644936526}
-  moneyText: {fileID: 8278202156401908852}
+  healthText: {fileID: 8278202156401908852}
+  moneyText: {fileID: 8278202156261648469}
+  scoreText: {fileID: 8278202156644936526}
 --- !u!1 &8278202156261648467
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +226,7 @@ GameObject:
   - component: {fileID: 8278202156261648468}
   - component: {fileID: 8278202156261648469}
   m_Layer: 5
-  m_Name: Element
+  m_Name: Money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,7 +245,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8278202156006068651}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -292,7 +293,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'ELEMENT:'
+  m_Text: 
 --- !u!1 &8278202156401908850
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +306,7 @@ GameObject:
   - component: {fileID: 8278202156401908855}
   - component: {fileID: 8278202156401908852}
   m_Layer: 5
-  m_Name: Money
+  m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,7 +373,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'MONEY:'
+  m_Text: 
 --- !u!1 &8278202156644936524
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +386,7 @@ GameObject:
   - component: {fileID: 8278202156644936561}
   - component: {fileID: 8278202156644936526}
   m_Layer: 5
-  m_Name: Health
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -404,7 +405,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8278202156006068651}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -452,4 +453,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'HEALTH:'
+  m_Text: 

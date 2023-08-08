@@ -13,6 +13,10 @@ public class PlayerManager : MonoBehaviour
     PhotonView PV;
     string money;
     string health;
+    string finalMoney;
+    string finalHealth;
+    string finalScore;
+    string score;
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
@@ -40,6 +44,10 @@ public class PlayerManager : MonoBehaviour
     {
         PV.RPC(nameof(RPC_GetHealth), PV.Owner);
     }
+    public void GetScore()
+    {
+        PV.RPC(nameof(RPC_GetScore), PV.Owner);
+    }
     [PunRPC]
     void RPC_GetMoney()
     {
@@ -56,6 +64,14 @@ public class PlayerManager : MonoBehaviour
         Hashtable hash = new Hashtable();
         //Debug.Log("GET HEALTH");
         hash.Add("health", health);
+        PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+    }
+    [PunRPC]
+    void RPC_GetScore()
+    {
+        score = PlayerPrefs.GetString("SCORE");
+        Hashtable hash = new Hashtable();
+        hash.Add("score", score);
         PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
     }
     public static PlayerManager Find(Player player)

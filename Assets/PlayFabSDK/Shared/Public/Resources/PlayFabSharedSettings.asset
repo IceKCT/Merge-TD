@@ -15,7 +15,7 @@ MonoBehaviour:
   TitleId: E398A
   DeveloperSecretKey: CPEZZTMCFHJQJA31FKFPXKBGFXOZ1PONCA379I3UUOJKES87NT
   ProductionEnvironmentUrl: 
-  RequestType: 2
+  RequestType: 0
   DisableDeviceInfo: 0
   DisableFocusTimeCollection: 0
   RequestTimeout: 2000

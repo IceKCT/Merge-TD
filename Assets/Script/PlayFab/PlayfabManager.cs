@@ -22,10 +22,16 @@ public class PlayfabManager : MonoBehaviourPunCallbacks
     [SerializeField] GameObject mainMenuWindow;
     [SerializeField] GameObject loginWindow;
     [SerializeField] GameObject playerInfoWindow;
+    [SerializeField] GameObject towerElementNameWindow;
+    [SerializeField] GameObject leaderBoardWindow;
+    [Header("Prefab")]
+    public GameObject playerinfoPrefab;
+    [Header("TransForm")]
+    [SerializeField] Transform leaderBoardTable;
 
     public static string SessionTicket;
     public static string EntityID;
-
+    string loggedInPlayfabID;
     public List<InputField> inputField;
     private int inputFieldIndex;
     private void Start()
@@ -106,6 +112,7 @@ public class PlayfabManager : MonoBehaviourPunCallbacks
     }
     public void OnLoginSuccess(LoginResult result)
     {
+        loggedInPlayfabID = result.PlayFabId;
         loginWindow.SetActive(false);
         massageText.text = "Logged in success";
         EntityID = result.EntityToken.Entity.Id;
@@ -158,6 +165,85 @@ public class PlayfabManager : MonoBehaviourPunCallbacks
         mainMenuWindow.SetActive(true);
         playerInfoWindow.SetActive(true);
         displayNameWindow.SetActive(false);
+    }
+    public void SendLeaderBoard(int score)
+    {
+        var request = new UpdatePlayerStatisticsRequest
+        {
+            Statistics = new List<StatisticUpdate> {
+                new StatisticUpdate
+                {
+                    StatisticName = "GameScore",
+                    Value = score
+                }
+            }
+        };
+        PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderBoardUpdate, OnError);
+    }
+    public void OnLeaderBoardUpdate(UpdatePlayerStatisticsResult result)
+    {
+        Debug.Log("Successfully leader board sent");
+    }
+    public void OnGetLeaderBoard()
+    {
+        var request = new GetLeaderboardRequest
+        {
+            StatisticName = "GameScore",
+            StartPosition = 0,
+            MaxResultsCount = 10
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnLeaderBoardGet, OnError);
+    }
+    public void OnLeaderBoardGet(GetLeaderboardResult result)
+    {
+        foreach (Transform item in leaderBoardTable)
+        {
+            Destroy(item.gameObject);
+        }
+        foreach (var item in result.Leaderboard)
+        {
+            GameObject playerInfo = Instantiate(playerinfoPrefab, leaderBoardTable);
+            Text[] texts = playerInfo.GetComponentsInChildren<Text>();
+            texts[0].text = (item.Position + 1).ToString();
+            texts[1].text = item.DisplayName.ToString();
+            texts[2].text = item.StatValue.ToString();
+            Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
+        }
+    }
+    public void GetLeaderBoardAroundPlayer()
+    {
+
+        var request = new GetLeaderboardAroundPlayerRequest {
+            StatisticName = "GameScore",
+            PlayFabId = loggedInPlayfabID,
+            MaxResultsCount = 9
+        };
+        PlayFabClientAPI.GetLeaderboardAroundPlayer(request, OnLeaderBoardAroundPlayerGet, OnError);
+    }
+    public void OnLeaderBoardAroundPlayerGet(GetLeaderboardAroundPlayerResult result)
+    {
+        foreach (Transform item in leaderBoardTable)
+        {
+            Destroy(item.gameObject);
+        }
+        foreach (var item in result.Leaderboard)
+        {
+            GameObject playerInfo = Instantiate(playerinfoPrefab, leaderBoardTable);
+            Text[] texts = playerInfo.GetComponentsInChildren<Text>();
+            texts[0].text = (item.Position + 1).ToString();
+            texts[1].text = item.DisplayName.ToString();
+            texts[2].text = item.StatValue.ToString();
+            if (item.PlayFabId == loggedInPlayfabID)
+            {
+                texts[0].color = Color.red;
+                texts[1].color = Color.red;
+                texts[2].color = Color.red;
+            }
+        }
+    }
+    public void TestSendScore()
+    {
+        SendLeaderBoard(Random.Range(0,100));
     }
     //photon
     public void ConnectToPhoton(string nickName)
