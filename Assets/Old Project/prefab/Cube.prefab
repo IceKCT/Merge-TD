@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7168449442054623313
 Transform:
@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 15, y: 1, z: 15}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5105032769512325057}
   - {fileID: 5130905228793567394}
@@ -55,6 +56,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -63,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7721cacfd4b1cca43ad83ac6943fcd68, type: 2}
+  - {fileID: 2100000, guid: fbae5aedbab0c9c4a9863de59e323565, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,14 +114,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 0.72156864}
   notEnoughMoney: {r: 0.8490566, g: 0.123353474, b: 0.123353474, a: 0.69411767}
-  colorCanMerge: {r: 0, g: 0, b: 0, a: 0}
+  colorCanMerge: {r: 0.9528302, g: 0.5698553, b: 0.13843001, a: 0}
   Positionoffset: {x: 0, y: 0, z: 0}
   turret: {fileID: 0}
   effectPoint: {fileID: 4943064743913208722}
   tagTurret: 
   hasTower: 0
-  MergeArea: {fileID: 4903367190145749090}
-  areaRadius: 52
+  isFire: 0
+  isAcid: 0
+  isBurst: 0
+  isElec: 0
+  isPoison: 0
 --- !u!1 &4903367190145749090
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +141,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 0
 --- !u!4 &5130905228793567394
 Transform:
@@ -148,6 +153,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.7, z: 0}
   m_LocalScale: {x: 7, y: 1, z: 7}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7168449442054623313}
   m_RootOrder: 1
@@ -171,6 +177,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -215,7 +222,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5105032769512325057
 Transform:
@@ -227,6 +234,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 13.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7168449442054623313}
   m_RootOrder: 0

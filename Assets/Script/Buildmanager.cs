@@ -5,20 +5,22 @@ using UnityEngine;
 public class Buildmanager : MonoBehaviour
 {
     public static Buildmanager instance;
-    public GameObject ResearchUI;
+    public GameObject ResearchUI, ReseachElemUI;
 
     private void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
             Debug.LogError("more than one in scene");
             return;
         }
         instance = this;
-        
+
     }
-    //public GameObject fireTurretPrefab, waterTurret, fireTurretPrefabLV2, waterTurretLV2, fireTurretPrefabLV3, waterTurretLV3;
+
     public GameObject waterEffect, fireEffect;
+
+    public GameObject uiTower;
 
 
     public NodeUI nodeUI;
@@ -28,36 +30,36 @@ public class Buildmanager : MonoBehaviour
 
     public GameObject frameTowerPrefab;
 
-    public GameObject popUPcantmerge, popUPNotEnough, popUpOFR, popUpSelectAnother;
+    public GameObject popUPPlaceTower, popUPNotEnough;
 
     public bool CanBuild { get { return turretToBuild != null; } }
     public bool HasMoney { get { return PlayerStat.Money >= 100; } }
 
     public bool CloseSprite { get { return turretToBuild == null; } }
 
+    public GameObject hand;
+
     public void SelectNode(Node node)
     {
         selectedNode = node;
+        TowerInput.instance.SetTarget(node);
         turretToBuild = null;
-        nodeUI.SetTarget(node); 
+        uiTower.transform.position = new Vector3(960, 540, 0);
     }
-    
-    public void SelectNodeTwo(Node node)
-    {
-        nodeUI.SetTargetTwo(node);
-    }
+
 
     public void DeselectNode()
     {
         selectedNode = null;
-        nodeUI.Hide();
+
     }
 
     public void SelectTurretToBuild(GameObject turret)
     {
         turretToBuild = turret;
+        hand.SetActive(false);
         selectedNode = null;
-        nodeUI.Hide();
+        PlaceTowerPopUp();
     }
 
     public void DeNodeTower()
@@ -67,7 +69,7 @@ public class Buildmanager : MonoBehaviour
 
     public GameObject GetTurretToBuild()
     {
-        
+
         return turretToBuild;
     }
 
@@ -77,30 +79,24 @@ public class Buildmanager : MonoBehaviour
         StartCoroutine(ClosePOPUP());
     }
 
-    public void CantMergePOPUP()
+    public void PlaceTowerPopUp()
     {
-        popUPcantmerge.SetActive(true);
-        StartCoroutine(ClosePOPUP());
+        popUPPlaceTower.SetActive(true);
+        
     }
-    public void OutOfRange()
+    public void PlacedTowerPopUp()
     {
-        popUpOFR.SetActive(true);
-        StartCoroutine(ClosePOPUP());
+        popUPPlaceTower.SetActive(false);
     }
-    public void SelectAnother()
-    {
-        popUpSelectAnother.SetActive(true);
-        StartCoroutine(ClosePOPUP());
-    }
+  
 
     public IEnumerator ClosePOPUP()
     {
         yield return new WaitForSeconds(closePOPUP);
         popUPNotEnough.SetActive(false);
-        popUPcantmerge.SetActive(false);
-        popUpSelectAnother.SetActive(false);
-        popUpOFR.SetActive(false);
-    } 
+       
+       
+    }
 
     public void IsitWork()
     {

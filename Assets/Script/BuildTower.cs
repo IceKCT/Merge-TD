@@ -9,6 +9,7 @@ public class BuildTower : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] private GameObject sliderOBJ;
     [SerializeField] private GameObject dciPanel;
+    [SerializeField] private GameObject Alert;
     public GameObject tower;
     public float buildProgress;
     public float maxTime;
@@ -35,6 +36,7 @@ public class BuildTower : MonoBehaviour
             {
                 dciPanel.SetActive(true);
                 Debug.Log("Bruh");
+              
             }
         }
         else
@@ -47,6 +49,7 @@ public class BuildTower : MonoBehaviour
                 buildManager.SelectTurretToBuild(tower);
                 //research.movePos();
                 Debug.Log("gotchaBitch");
+                Alert.SetActive(false);
             }
             else
             {
@@ -57,7 +60,7 @@ public class BuildTower : MonoBehaviour
     public void OnYesButton()
     {
         sliderOBJ.SetActive(true);
-        
+        buildProgress = maxTime;
         dciPanel.SetActive(false);
         onProgress = true;
         Debug.Log("Start CountDown");
@@ -70,7 +73,10 @@ public class BuildTower : MonoBehaviour
     }
     private void Update()
     {
-     
+        if(buildProgress <= 0 && onProgress == false)
+        {
+            Alert.SetActive(true);
+        }
     }
 
     private void CountDown()
@@ -81,6 +87,7 @@ public class BuildTower : MonoBehaviour
             buildProgress -= 1;
             Debug.Log("Buildprogress = "+ buildProgress);
             slider.value = buildProgress / maxTime;
+           
         }
         else
         {

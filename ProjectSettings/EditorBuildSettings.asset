@@ -8,10 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 8f5eaab476c4d1042ad7ab4f4cbf3415
+  - enabled: 0
+    path: Assets/Scenes/TestServer.unity
+    guid: 7132e5ff6c8e4244ebae03dca7ab53a0
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/EndGameScene.unity
     guid: e17563d6ca4c1334d88f34c93be05024
+  - enabled: 0
+    path: Assets/Scenes/GameScenePhotonServer.unity
+    guid: 0ff4613a569b5a54cad42f755d763945
+  - enabled: 0
+    path: Assets/Scenes/TestGameScene.unity
+    guid: f4b908f727fa9694c946091e88df5eb4
   m_configObjects: {}

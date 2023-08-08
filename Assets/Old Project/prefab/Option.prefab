@@ -28,6 +28,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3467178, y: 0.66920847, z: 0.46962}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1308828062748948664}
   m_RootOrder: 0
@@ -103,6 +104,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1308828062078721113}
   m_RootOrder: 0
@@ -185,6 +187,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.2031722, y: 2.2031722, z: 2.2031722}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1308828061860015027}
   m_Father: {fileID: 1308828062748948664}
@@ -317,6 +320,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.8143699, y: 0.81437, z: 0.81437004}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1308828062748948664}
   m_RootOrder: 3
@@ -397,6 +401,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.2190511, y: 2.2190511, z: 2.2190511}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1308828063404719085}
   m_Father: {fileID: 1308828062748948664}
@@ -528,6 +533,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1308828062748948664}
   m_Father: {fileID: 0}
@@ -552,6 +558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionMenu: {fileID: 1308828062748948671}
   settingButton: {fileID: 0}
+  SettingPanel: {fileID: 0}
 --- !u!1 &1308828062748948671
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,6 +587,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1308828061747310590}
   - {fileID: 1308828062343253724}
@@ -661,6 +669,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1308828062343253724}
   m_RootOrder: 0
@@ -740,6 +749,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1714381972285747143}
   m_RootOrder: 0
@@ -820,6 +830,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.2190511, y: 2.2190511, z: 2.2190511}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7367407428839993126}
   m_Father: {fileID: 1308828062748948664}
@@ -952,6 +963,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4725325844811296779}
   m_RootOrder: 0
@@ -1002,7 +1014,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: RESTART
+  m_Text: MainMenu
 --- !u!1 &7759940940766253853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,7 +1028,7 @@ GameObject:
   - component: {fileID: 4530831615397569510}
   - component: {fileID: 8363270855540793987}
   m_Layer: 5
-  m_Name: Restart
+  m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1032,6 +1044,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.2031722, y: 2.2031722, z: 2.2031722}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6119982280876727697}
   m_Father: {fileID: 1308828062748948664}

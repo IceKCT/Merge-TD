@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using PlayFab;
+using PlayFab.ClientModels;
 public class PlayerStat : MonoBehaviour
 {
     public static float Money;
@@ -17,10 +18,18 @@ public class PlayerStat : MonoBehaviour
     public  Animator anim;
     public GameObject Live;
     public static PlayerStat instance;
+    public float FinalMoney;
+    public int FinalHealth;
+    public int FinalScore;
+    public GameObject finalScoreWindow;
+    public GameObject handPanel;
+    public GameObject tapPanel;
+    public bool isGameEnd;
+    [SerializeField] Transform playerBestScoreTable;
+    [SerializeField] GameObject playerBestScoreInGame;
     private void Awake()
     {
         instance = this;
-
     }
 
     void Start()
@@ -30,6 +39,7 @@ public class PlayerStat : MonoBehaviour
         Money = startMoney;
         live = startLive;
         score = 0;
+        isGameEnd = false;
     }
 
     private void Update()
@@ -40,24 +50,34 @@ public class PlayerStat : MonoBehaviour
 
         if(live <= 0)
         {
-            SceneManager.LoadScene("EndGameScene");
+            live = 0;
+            if (isGameEnd == false)
+            {   
+                isGameEnd = true;
+                SendLeaderBoard(FinalScore);
+                GetYourBestScore();
+            }
+            finalScoreWindow.SetActive(true);
+            handPanel.SetActive(false);
+            tapPanel.SetActive(false);
+
         }
 
         Money += (monpersec + bonusMoney) * Time.deltaTime;
+        PlayerPrefs.SetString("SCORE", score.ToString());
+        PlayerPrefs.SetString("MONEY", Money.ToString());
+        PlayerPrefs.SetString("HEALTH", live.ToString());
     }
 
     public void getMoney(float amount)
     {
         Money += amount;
+        
     }
 
     public void GetScore(int x)
     {
         score += x;
-    }
-    public void FinalScore()
-    {
-        PlayerPrefs.SetInt("finalScore", score);
     }
 
     public static void GetBonusMoney(int x)
@@ -68,5 +88,51 @@ public class PlayerStat : MonoBehaviour
     public void playAnimation()
     {
         anim.SetTrigger("Damage");
+    }
+    public void SendLeaderBoard(int score)
+    {
+        var request = new UpdatePlayerStatisticsRequest
+        {
+            Statistics = new List<StatisticUpdate> {
+                new StatisticUpdate
+                {
+                    StatisticName = "GameScore",
+                    Value = score
+                }
+            }
+        };
+        PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderBoardUpdate, OnError);
+    }
+    public void OnLeaderBoardUpdate(UpdatePlayerStatisticsResult result)
+    {
+        Debug.Log("Successfully leader board sent");
+    }
+    public void OnError(PlayFabError error)
+    {
+        Debug.Log(error.GenerateErrorReport());
+    }
+    public void GetYourBestScore()
+    {
+        var request = new GetLeaderboardAroundPlayerRequest
+        {
+            StatisticName = "GameScore",
+            MaxResultsCount = 1
+        };
+        PlayFabClientAPI.GetLeaderboardAroundPlayer(request, OnYourBestScoreGet, OnError);
+    }
+    public void OnYourBestScoreGet(GetLeaderboardAroundPlayerResult result)
+    {
+        foreach (Transform item in playerBestScoreTable)
+        {
+            Destroy(item.gameObject);
+        }
+        foreach (var item in result.Leaderboard)
+        {
+            GameObject playerInfo = Instantiate(playerBestScoreInGame, playerBestScoreTable);
+            Text[] texts = playerInfo.GetComponentsInChildren<Text>();
+            texts[0].text = (item.Position + 1).ToString();
+            texts[1].text = item.DisplayName.ToString();
+            texts[2].text = item.StatValue.ToString();
+        }
     }
 }

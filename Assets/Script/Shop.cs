@@ -50,7 +50,7 @@ public class Shop : MonoBehaviour
 
     public void RandomTurret()
     {
-        ranNum = Random.Range(0, 10);
+        /*ranNum = Random.Range(0, 10);
         if (ranNum <= 5)
         {
             buildManager.SelectTurretToBuild(frameTowerLv1);
@@ -65,7 +65,7 @@ public class Shop : MonoBehaviour
             fireSprite.SetActive(false);
             return;
         }
-        
+        */
     }
     public void CloseSprite()
     {

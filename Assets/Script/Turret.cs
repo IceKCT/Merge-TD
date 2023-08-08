@@ -29,15 +29,24 @@ public class Turret : MonoBehaviour
     [Header("SomeThing else")]
     public Transform firePoint;
 
+
     public int sellTower;
 
     public int MergePrice;
 
+    public GameObject uiTower;
+
     WaveSpawner waves;
+
+
+
+    public string elementadd;
+    
     private void Start()
     {
-
+        uiTower = GameObject.Find("TowerUI");
         waves = WaveSpawner.instance;
+      
         if (isBuffTurret == false)
         {
             InvokeRepeating("UpdateTarget", 0f, 0.5f);
@@ -157,6 +166,7 @@ public class Turret : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, range);
     }
 
+  
     public int GetMoneyFromTower()
     {
         return sellTower;
@@ -173,5 +183,16 @@ public class Turret : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void Element(string x)
+    {
+        elementadd = x;
+    }
+    public void OnMouseDown()
+    {
+        
+        uiTower.transform.position = new Vector3(960, 540, 0);
+ 
     }
 }

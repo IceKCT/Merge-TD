@@ -10,7 +10,6 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerStat.instance.FinalScore();
         oldScore = PlayerPrefs.GetInt("finalScore");
         finalScore.text = oldScore.ToString() + " Point." ;
     }
